@@ -1,0 +1,26 @@
+<!--<span class="icon">-->
+<!--  <i class="i" [class]="icon" (mouseenter)="onMouseEnter()"-->
+<!--     (mouseleave)="onMouseLeave()"></i>-->
+<!--  <span class="tooltip marven-font" [innerText]="tooltip"-->
+<!--        [style]="'opacity: ' + opacity + ';'"></span>-->
+<!--</span>-->
+
+
+@if (tooltip) {
+  <div class="icon-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <i class="icon" [class]="getIcon()">
+      @if (showingTooltip) {
+        <span class="tooltip">{{ tooltip }}</span>
+      }
+    </i>
+  </div>
+} @else {
+  <div class="icon-container">
+    <i class="icon" [class]="getIcon()">
+      @if (showingTooltip) {
+        <span class="tooltip">{{ tooltip }}</span>
+      }
+    </i>
+  </div>
+}
+

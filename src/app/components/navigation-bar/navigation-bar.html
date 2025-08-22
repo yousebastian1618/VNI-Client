@@ -1,0 +1,14 @@
+<div class="navigation-bar-container navigation-bar-background-color">
+  <div class="logo-container">
+    <img class="logo" ngSrc="assets/logo.png" alt="" width="1" height="1" priority="priority" draggable="false" />
+  </div>
+  <div class="navigation-bar-elements-container">
+    @for (element of getNavigationBarElements(); track element.name) {
+      <div class="navigation-bar-element-container">
+        <span class="navigation-bar-element">
+          {{ element.label }}
+        </span>
+      </div>
+    }
+  </div>
+</div>

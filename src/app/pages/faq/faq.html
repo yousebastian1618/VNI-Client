@@ -1,0 +1,25 @@
+<div class="faq-container">
+  <div class="title-style-left">
+    FAQ & Process Overview
+  </div>
+  <div class="faqs-container">
+    <div class="image-container">
+      <img class="image" ngSrc="assets/faq.png" alt="" width="1" height="1" priority="priority" />
+    </div>
+    <div class="faqs">
+      @for (faq of getFaqs(); track faq.index) {
+        <hr />
+        <div class="question-container" (click)="toggleShowAnswer(faq.index)">
+          <div class="question icon-cursor-pointer">
+            {{ faq.question }}
+          </div>
+          <app-icon [icon]="toggleArrowIcon(faq.index)" class="icon"/>
+        </div>
+        <p class="answer" [style]="getToggleAnswerStyle(faq.index)" [innerHTML]="faq.answer"></p>
+        @if (faq.index === getFaqs().length) {
+          <hr />
+        }
+      }
+    </div>
+  </div>
+</div>

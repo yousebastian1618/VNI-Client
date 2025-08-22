@@ -1,0 +1,18 @@
+.regulatory-compliance-container {
+  display: flex;
+  flex-direction: column;
+  .regulatory-compliance {
+    display: flex;
+    //margin-top: 3em;
+    .regulatory-compliance-mini-table {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      .regulatory-compliance-icon {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}

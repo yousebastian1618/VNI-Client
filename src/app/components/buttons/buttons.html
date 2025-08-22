@@ -1,0 +1,7 @@
+<div class="buttons-container">
+  <div class="buttons">
+    @for (button of getButtons(); track button.name) {
+      <button type="button" class="modified-button button" (click)="handleClick(button)">{{ button.label }}</button>
+    }
+  </div>
+</div>

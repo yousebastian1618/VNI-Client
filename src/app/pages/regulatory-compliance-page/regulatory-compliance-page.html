@@ -1,0 +1,13 @@
+<span class="regulatory-compliance-container">
+  <div class="title-style">
+    Regulatory Compliance
+  </div>
+  <div class="regulatory-compliance">
+    @for (item of getProductSolutions(); track item.header.name) {
+      <div class="regulatory-compliance-mini-table" [style]="getWidth()">
+      <img class="regulatory-compliance-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
+      <app-mini-table [miniTableElement]="item"/>
+    </div>
+    }
+  </div>
+</span>

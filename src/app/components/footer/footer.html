@@ -1,0 +1,38 @@
+<div class="footer-container">
+  <div class="top">
+    <div class="left">
+      <img class="logo" ngSrc="assets/logo.png" alt="" width="1" height="1" priority="priority" />
+      <div class="social-medias">
+      </div>
+    </div>
+    <div class="right">
+      @for (footerElement of getFooterElements(); track footerElement.header.name) {
+        <div class="footer-element">
+          <div class="footer-element-title">
+            {{ footerElement.header.label }}
+          </div>
+          @for (footerElementChild of footerElement.elements; track footerElementChild.name) {
+            <span [class]="footerElementChild.name === 'disclaimer-message' ? 'disclaimer' : 'footer-element-child text-curser-pointer'">
+              {{ footerElementChild.label }}
+            </span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="social-media-icons">
+      @for (socialMedia of getSocialMedias(); track socialMedia.name) {
+        <app-icon class="social-media-icon icon-cursor-pointer" [icon]="socialMedia.icon" />
+      }
+    </div>
+    <div class="contact-info">
+      @for (info of getContactInfo(); track info.name) {
+        <div class="info">
+          <app-icon class="icon" [icon]="info.icon" />
+          <span class="info-detail" [innerText]="info.info"></span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

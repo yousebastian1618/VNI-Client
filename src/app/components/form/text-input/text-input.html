@@ -1,0 +1,7 @@
+<span class="text-input-container">
+  @if (element.type === 'textarea') {
+    <textarea class="textarea text-area-input" rows="4" cols="80" [placeholder]="element.label"></textarea>
+  } @else {
+    <input class="text text-input" [type]="element.type" [placeholder]="element.label" [id]="element.name" />
+  }
+</span>

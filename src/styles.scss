@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  min-height: 100vh;
+  --default-color: #86d668;
+  --default-color1: #c7d285;
+  --default-color2: #86d4ce;
+  --default-color3: #fde36a;
+  --default-color-grey: #cccccc;
+  --default-color-dark-grey: #777777;
+  --default-color-red: #FF706E;
+  --default-color-blue: #78BCFF;
+  --default-color-background: #F1F1F1;
+
+  --brand-kit-color-1: #a81c25;
+  --brand-kit-color-2: #FFFFFF;
+  --brand-kit-color-3: #2E2E2E;
+  --brand-kit-color-4: #3CB371;
+
+  --background-color-1: #FFF8F5;
+  --background-color-2: #FAFAFA;
+  --background-color-3: #F4F4F4;
+}
+
+body {
+  margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-family: "Google Sans", "Product Sans", "Nunito Sans", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--background-color-1);
+}
+
+.navigation-bar-background-color {
+  background-color: var(--brand-kit-color-2);
+}
+
+.title-style {
+  color: var(--brand-kit-color-1);
+  font-size: 4ex;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.title-style-left {
+  color: var(--brand-kit-color-1);
+  font-size: 4ex;
+  font-weight: 400;
+  display: flex;
+  justify-content: left;
+  margin-left: 5em;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.title-style-right {
+  color: var(--brand-kit-color-1);
+  font-size: 4ex;
+  font-weight: 400;
+  display: flex;
+  justify-content: right;
+  margin-right: 5em;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.body-style {
+  width: 70%;
+  text-align: justify;
+  font-size: 2.5ex;
+}
+
+.mini-table-title-style {
+  color: var(--brand-kit-color-1);
+  font-size: 3ex;
+  font-weight: 400;
+}
+
+.text-input {
+  height: 35px;
+  border: 1px solid grey;
+  width: 600px;
+  border-radius: 5px;
+  padding-left: 1ex;
+  &:focus {
+    border: 1px solid var(--brand-kit-color-3);
+    outline: 1px solid var(--brand-kit-color-3);
+  }
+}
+
+.text-area-input {
+  height: 250px;
+  border: 1px solid grey;
+  width: 600px;
+  border-radius: 5px;
+  padding-left: 1ex;
+  resize: none;
+  &:focus {
+    border: 1px solid var(--brand-kit-color-3);
+    outline: 1px solid var(--brand-kit-color-3);
+  }
+}
+
+.modified-button {
+  border: none;
+  background-color: white;
+  padding: 1ex 2ex;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.1s ease;
+  font-family: "Google Sans", "Product Sans", "Nunito Sans", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, black 0 0 0 1px;
+  &:hover {
+    box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, var(--brand-kit-color-1) 0 0 0 2px;
+  }
+}
+
+.text-curser-pointer {
+  cursor: pointer;
+  transition: 0.1s ease;
+  padding: 1ex;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid var(--brand-kit-color-1);
+    padding: 1ex;
+  }
+}
+
+.icon-cursor-pointer {
+  cursor: pointer;
+  transition: 0.1s ease;
+  &:hover {
+    color: var(--brand-kit-color-1);
+  }
+}

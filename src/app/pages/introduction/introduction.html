@@ -1,0 +1,25 @@
+<div class="introduction-container">
+  <div class="viewport">
+    <div class="image-container" [style.transform]="containerTransform()"
+         [style.transition]="transitionStyle()">
+      @for (image of getImages(); track image) {
+        <div class="slide">
+          <img class="image" [ngSrc]="image" alt="" width="1" height="1" priority="priority" />
+        </div>
+      }
+    </div>
+  </div>
+  <div class="dots">
+    @for (image of getImages(); track image; let i = $index) {
+      <button
+        class="dot"
+        type="button"
+        [class.active]="index() === i"
+        [attr.aria-controls]="'slide-' + i"
+        [attr.tabindex]="index() === i ? 0 : -1"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+        (click)="selectImageIndex(i)">
+      </button>
+    }
+  </div>
+</div>

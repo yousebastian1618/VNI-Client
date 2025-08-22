@@ -1,0 +1,15 @@
+<div class="form-container">
+  <form class="form">
+    @for (inputElement of form; track inputElement.name) {
+      <label [for]="inputElement.name" class="label">
+        {{ inputElement.label }}
+        @if (inputElement.required) {
+          <span style="">*</span>
+        }
+      </label>
+      @if (getTextInputOptions().includes(inputElement.type)) {
+        <app-text-input [element]="inputElement" class="app-text-input" />
+      }
+    }
+  </form>
+</div>

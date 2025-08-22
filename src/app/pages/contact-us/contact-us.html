@@ -1,0 +1,24 @@
+<div class="contact-us-container">
+  <div class="title-style-right">
+    Contact Us
+  </div>
+  <div class="contact-body">
+    <div class="left">
+      <div class="message">
+        <p class="header-message" [innerHTML]="getMessage()"></p>
+      </div>
+      <div class="form-container">
+        <div class="form">
+          <app-form [form]="getContactUsForm()" />
+        </div>
+        <div class="buttons">
+          <app-buttons [buttons]="getContactUsButtons()" />
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <img class="contact-image" ngSrc="assets/contact-us.png" alt="" width="1" height="1" priority="priority" />
+    </div>
+  </div>
+</div>
+

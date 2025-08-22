@@ -1,0 +1,53 @@
+<div class="about-container">
+  <div class="about-element-left">
+    <div class="left">
+      <div class="title">
+        <div class="title-style-left">
+          {{ getWhoWeAre().title }}
+        </div>
+      </div>
+      <div class="body">
+        <span class="body-style">
+          {{ getWhoWeAre().body }}
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <img [ngSrc]="getWhoWeAre().image" alt="" width="1" height="1" priority="priority" draggable="false" />
+    </div>
+  </div>
+  <div class="about-element-right">
+    <div class="left">
+      <img [ngSrc]="getOutMission().image" alt="" width="1" height="1" priority="priority" draggable="false" />
+    </div>
+    <div class="right">
+      <div class="title">
+        <div class="title-style-right">
+          {{ getOutMission().title }}
+        </div>
+      </div>
+      <div class="body">
+        <span class="body-style">
+          {{ getOutMission().body }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="about-element-left">
+    <div class="left">
+      <div class="title">
+        <div class="title-style-left">
+          {{ getHowCanWeHelpYou().title }}
+        </div>
+      </div>
+      <div class="body">
+        <span class="body-style">
+          {{ getHowCanWeHelpYou().body }}
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <img [ngSrc]="getHowCanWeHelpYou().image" alt="" width="1" height="1" priority="priority" draggable="false" />
+    </div>
+  </div>
+</div>
