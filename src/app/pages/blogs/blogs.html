@@ -1,0 +1,32 @@
+<div class="back-button button-style" (click)="goBack()">
+  <app-icon class="back-button-icon" [icon]="'back'" />
+  <span>Go Back</span>
+</div>
+<div class="blogs-container">
+  <div class="title-style">
+    Blogs
+  </div>
+  <div class="admin-top-buttons">
+    <app-buttons [buttons]="getAdminManageBlogsButtons()" />
+  </div>
+  @if (isSortingBlogs()) {
+    <p class="drag-and-drop-message">** Drag and drop blogs to reorder index **</p>
+  }
+  <div class="blog-element-container">
+    <div class="blogs">
+      @for (blog of getBlogs(); track blog.id) {
+        <div
+          class="blog"
+          [draggable]="toggleDraggable()"
+          [id]="'blog_object_' + blog.index"
+          (dragstart)="onDragStart(blog.index)"
+          (dragenter)="onDragEnter($event, blog.index)"
+          (dragleave)="onDragLeave($event)"
+          (dragend)="onDragEnd()"
+        >
+          <app-sub-blog [blog]="blog" />
+        </div>
+      }
+    </div>
+  </div>
+</div>

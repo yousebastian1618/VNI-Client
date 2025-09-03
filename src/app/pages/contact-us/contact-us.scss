@@ -20,6 +20,11 @@
       }
       .form-container {
         padding: 3em 0;
+        .buttons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
       .contact-info {
         .icons {

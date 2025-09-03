@@ -1,17 +1,26 @@
 <div class="home-container">
+  <div class="navigation-bar">
+    <app-navigation-bar />
+  </div>
   <div class="introduction">
     <app-introduction [images]="getIntroductionImages()" [intervalTime]="getIntroductionIntervalTime()" />
   </div>
-  <div class="about">
+  <div class="about" id="about">
     <app-about-page />
   </div>
-  <div class="product-solution">
+  <div class="product-solution" id="product-solution">
     <app-product-solution-page />
   </div>
-  <div class="regulatory-compliance">
+  <div class="sample-products" id="sample-products">
+    <app-sample-products [sampleProducts]="(getSampleProducts() | async) ?? []" />
+  </div>
+  <div class="regulatory-compliance" id="regulatory-compliance">
     <app-regulatory-compliance-page />
   </div>
-  <div class="faq">
+  <div class="blog" id="blogs">
+    <app-blog-page [mainBlog]="getMainBlog()" [subBlogs]="getSubBlogs()"/>
+  </div>
+  <div class="help" id="help">
     <app-faq />
   </div>
   <div class="contact-us">

@@ -1,0 +1,15 @@
+<div class="blog-container" (click)="selectBlog(getBlog())" [routerLink]="goToBlog(getBlog())">
+  <div class="main-image-container">
+    <img class="main-image" [ngSrc]="getMainImage()" alt="" width="1" height="1" priority="priority" />
+  </div>
+  <div class="title footer-title-font-family">
+    {{ getTitle() }}
+  </div>
+  <div class="sub-title footer-element-child-font-family">
+    {{ getSubTitle() }}
+  </div>
+  <div class="author">
+    {{ getAuthor() }}
+  </div>
+</div>
+

@@ -11,7 +11,8 @@ import {NgOptimizedImage} from '@angular/common';
   styleUrl: './about-page.scss'
 })
 export class AboutPage {
-  constructor(){}
+  constructor(
+  ){}
 
   getWhoWeAre() {
     return WHO_WE_ARE;

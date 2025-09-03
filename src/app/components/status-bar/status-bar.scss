@@ -1,0 +1,10 @@
+.status-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .status-type {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+}

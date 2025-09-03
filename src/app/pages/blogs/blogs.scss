@@ -1,0 +1,31 @@
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: fit-content;
+  margin: 1rex;
+  .back-button-icon {
+    margin: 0 1ex;
+  }
+}
+.blogs-container {
+  .admin-top-buttons {
+    margin: 0 8%;
+  }
+  .drag-and-drop-message {
+    text-align: center;
+    color: var(--brand-kit-color-1);
+  }
+  .blog-element-container {
+    margin: 0 8%;
+    .blogs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      grid-gap: 1rem;
+      .blog {
+
+      }
+    }
+  }
+}

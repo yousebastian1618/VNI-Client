@@ -1,10 +1,27 @@
 <main class="main">
-  <div class="page">
-    <div class="navigation-bar">
-      <app-navigation-bar />
+  @if (isStatusShowing()) {
+    <div class="status" [style]="getStatusStyle()" (click)="closeStatus()">
+      <app-status-bar />
     </div>
+  }
+  @if (isLoading()) {
+    <div class="loading">
+      <app-loading />
+    </div>
+  }
+  @if (getIsModalOn()) {
+    <div class="modal-container" [class]="isLoading() ? 'disable-dim' : ''">
+      <div class="modal">
+        <div class="close-icon-container">
+          <app-icon class="close-icon" [icon]="'x'" (click)="closeModal()"/>
+        </div>
+        <app-modal />
+      </div>
+    </div>
+  }
+  <div class="page" [class]="getAppClass()">
     <div class="home-page">
-      <app-home-page />
+      <router-outlet />
     </div>
   </div>
 </main>

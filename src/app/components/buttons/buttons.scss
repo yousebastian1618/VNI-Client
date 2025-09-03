@@ -2,7 +2,13 @@
   margin: 1em 0;
   .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    column-gap: 1em;
+    .loading-label {
+      width: 2rem;
+      height: auto;
+    }
+
   }
 }

@@ -1,0 +1,25 @@
+.blog-container {
+  .blog {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .main-blog {
+      width: 80%;
+      margin: 0 3em;
+    }
+    .sub-blogs {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 3em;
+      .sub-blog {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  .buttons {
+    margin-top: 5em;
+  }
+}

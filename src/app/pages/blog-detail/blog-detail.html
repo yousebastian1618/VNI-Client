@@ -1,0 +1,35 @@
+<div class="back-button button-style" (click)="goBack()">
+  <app-icon class="back-button-icon" [icon]="'back'" />
+  <span>Go Back</span>
+</div>
+<div class="blog-detail-container">
+  <div class="blog-title title-style">
+    {{ getBlogTitle() }}
+  </div>
+  <div class="blog-subtitle title-style">
+    {{ getBlogSubtitle() }}
+  </div>
+  <div class="blog-info">
+    <div class="blog-info-element">
+      {{ getBlogUploadedAt() }}
+    </div>
+    <div class="blog-info-element">
+      {{ getBlogAuthor() }}
+    </div>
+  </div>
+  <div class="blog-body">
+    <div class="blog-paragraphs">
+      @for (paragraph of getBlogParagraphs(); track paragraph.text; let i = $index) {
+        {{ paragraph.url }}
+        @if (getBlogImages()[i] !== null) {
+          <img class="blog-image" [ngSrc]="getBlogImages()[i].url" alt="" width="200" height="200" priority />
+        }
+        <div class="blog-paragraph-title title-style-left">{{ paragraph.title }}</div>
+        <p class="blog-paragraph" [innerText]="paragraph.text"></p>
+      }
+    </div>
+  </div>
+  <div class="blog-detail-footer">
+
+  </div>
+</div>

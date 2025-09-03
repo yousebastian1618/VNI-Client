@@ -8,11 +8,11 @@
     <div class="right">
       @for (footerElement of getFooterElements(); track footerElement.header.name) {
         <div class="footer-element">
-          <div class="footer-element-title">
+          <div class="footer-title-font-family">
             {{ footerElement.header.label }}
           </div>
           @for (footerElementChild of footerElement.elements; track footerElementChild.name) {
-            <span [class]="footerElementChild.name === 'disclaimer-message' ? 'disclaimer' : 'footer-element-child text-curser-pointer'">
+            <span [style]="'width: fit-content;'" [class]="footerElementChild.name === 'disclaimer-message' ? 'disclaimer' : 'footer-element-child-font-family text-curser-pointer'">
               {{ footerElementChild.label }}
             </span>
           }

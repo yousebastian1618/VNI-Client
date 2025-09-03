@@ -1,0 +1,29 @@
+<div class="back-button button-style" (click)="goToHomePage()">
+  <app-icon class="back-button-icon" [icon]="'back'" />
+  <span>Home Page</span>
+</div>
+<div class="container">
+  <div class="login-container">
+    <img class="logo-image" ngSrc="assets/logo.png" alt="" width="1" height="1" priority draggable="false"/>
+    <div class="title-style">
+      {{ forgotPassword ? 'FORGOT PASSWORD' : 'LOGIN' }}
+    </div>
+    <div class="login-input-container">
+      <app-form [form]="getLoginForm()" />
+    </div>
+    <div class="forgot-password-container">
+      @if (forgotPassword) {
+        <span class="goback-to-login">
+          Back to <b id="login-button" (click)="toggleForgotPassword(false)">Login</b>
+        </span>
+      } @else {
+        <b class="forgot-password" (click)="toggleForgotPassword(true)">
+          FORGOT PASSWORD
+        </b>
+      }
+    </div>
+    <div class="login-buttons">
+      <app-buttons [buttons]="getAdminLoginButtons()" />
+    </div>
+  </div>
+</div>

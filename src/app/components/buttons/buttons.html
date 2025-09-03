@@ -1,7 +1,29 @@
 <div class="buttons-container">
   <div class="buttons">
     @for (button of getButtons(); track button.name) {
-      <button type="button" class="modified-button button" (click)="handleClick(button)">{{ button.label }}</button>
+      @if (button.loading) {
+        <img class="loading-label" ngSrc="assets/loading.gif" alt="" width="1" height="1" priority />
+      }
+      @else {
+        @if (button.type === 'button') {
+
+          <button type="button" class="modified-button button" [class]="toggleButtonClass(button)" (click)="handleClick($event, button)">
+            {{ button.label }}
+          </button>
+          <input type="file" id="file-upload-input" multiple
+                 (input)="uploadContent($event.target)" [accept]="getAcceptedFileInputType()"
+                 style="display:none;" />
+        } @else if (button.type === 'icon') {
+          <app-icon
+            class="icon-style icon-cursor-pointer"
+            [style]="button.style"
+            [icon]="button.label"
+            [class]="toggleButtonClass(button)"
+            (click)="handleClick($event, button)"
+            [tooltip]="button.tooltip"
+          />
+        }
+      }
     }
   </div>
 </div>

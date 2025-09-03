@@ -1,0 +1,21 @@
+<div class="sub-blog-container" [class]="toggleSelectClass()" (click)="selectBlog(getBlog())" [routerLink]="goToBlog(getBlog())">
+  <div class="sub-blog-main-image">
+    @if (isSortingBlogs()) {
+      <span class="index-style">
+        {{ blog.index + 1 }}
+      </span>
+    }
+    <img class="main-image" [ngSrc]="getMainImage()" alt="" width="1" height="1" priority="priority" draggable="false"/>
+  </div>
+  @if (showAdminCrudBlog()) {
+    <div class="admin-manage-blog">
+      <app-buttons [buttons]="getAdminManageBlogButtons()" [element]="blog"/>
+    </div>
+  }
+  <div class="sub-blog-title footer-title-font-family">
+    {{ getTitle() }}
+  </div>
+  <div class="sub-blog-sub-title footer-element-child-font-family">
+    {{ getSubTitle() }}
+  </div>
+</div>

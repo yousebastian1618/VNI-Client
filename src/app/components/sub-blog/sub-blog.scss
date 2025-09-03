@@ -1,0 +1,34 @@
+.sub-blog-container {
+  padding: 1ex;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+  .sub-blog-main-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .main-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      border-radius: 5px;
+    }
+  }
+  .admin-manage-blog {
+    display: flex;
+    justify-content: right;
+    background-color: white;
+  }
+  .sub-blog-title {
+    font-size: 1.5ex;
+    text-align: center;
+    margin: 1ex 0 2ex 0;
+  }
+  .sub-blog-sub-title {
+    text-align: center;
+  }
+}

@@ -1,0 +1,59 @@
+<div class="modal-container">
+  @if (getModalType() === 'view') {
+    <div class="modal-view">
+      @if (getModalTypeData() === 'image') {
+        <div class="image-view">
+          <div class="single-image-container">
+            <img class="single-image" [ngSrc]="getProductImage(getModalMain())" alt="" width="1" height="1" priority draggable="false" />
+          </div>
+          <div class="previous-images">
+            @let products = (getProductImages() | async) ?? [];
+            @for (image of products; track image.id; let i = $index) {
+              <div class="previous-image-container">
+                <img
+                  class="previous-image"
+                  [class]="getModalMain().id === image.id ? '' : 'white-opacity'"
+                  (click)="viewImage(image)"
+                  [ngSrc]="getProductImage(image)" alt="" width="1" height="1"
+                  priority
+                  draggable="false"
+                />
+              </div>
+            }
+          </div>
+        </div>
+      }
+      @else if (getModalTypeData() === 'images') {
+        @if (isAdmin()) {
+          <div class="admin-top">
+            <app-buttons [buttons]="getManageImagesButtons()" />
+          </div>
+          @if (isSortingImage()) {
+            <p class="drag-and-drop-images">** Drag and drop images to reorder index **</p>
+          }
+        }
+        <div class="images">
+          @for (img of getModalMain(); track img.index) {
+            <div class="image-container">
+              @if (isSortingImage()) {
+                <span class="index-style">{{ img.index + 1 }}</span>
+              }
+              <img
+                class="image"
+                [class]="toggleImageClass(img)"
+                [id]="'image_object_' + img.index"
+                [ngSrc]="getProductImage(img)" alt="" width="1" height="1" priority
+                [draggable]="toggleDraggable()"
+                (click)="viewImage(img)"
+                (dragstart)="onDragStart(img)"
+                (dragenter)="onDragEnter($event, img)"
+                (dragleave)="onDragLeave($event)"
+                (dragend)="onDragEnd()"
+              />
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

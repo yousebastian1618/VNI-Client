@@ -1,0 +1,104 @@
+.modal-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  .modal-view {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overscroll-behavior: contain;
+    min-width: 0;
+    min-height: 0;
+    .back-button-container {
+      width: fit-content;
+      background-color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.1s ease;
+      font-weight: 500;
+      .back-button {
+        font-size: 1.5em;
+        cursor: pointer;
+        border-radius: 30%;
+      }
+    }
+    .image-view {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 2em 0;
+      .single-image-container {
+        width: 80%;
+        .single-image {
+          width: 100%;
+          height: 100%;
+          border-radius: 2%;
+        }
+      }
+      .previous-images {
+        width: 20%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-gap: 1ex;
+        will-change: transform;
+        .previous-image-container {
+          margin: 0 1em;
+          aspect-ratio: 2 / 3;
+          border-radius: 5px;
+          overflow: hidden;
+          width: 80%;
+          height: auto;
+          .previous-image {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              transform: scale(1.03);
+            }
+          }
+        }
+      }
+    }
+    .admin-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 10%;
+    }
+    .drag-and-drop-images {
+      text-align: center;
+      color: var(--brand-kit-color-1);
+    }
+    .images {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(200px, 1fr));
+      grid-gap: 1em;
+      will-change: transform;
+      padding: 3em;
+      .image-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .image {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+          display: block;
+          transition: 0.2s ease-in-out;
+          cursor: pointer;
+          border-radius: 5px;
+          &:hover {
+            transform: scale(1.03);
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}

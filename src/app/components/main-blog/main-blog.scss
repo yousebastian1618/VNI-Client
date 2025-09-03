@@ -1,0 +1,32 @@
+.blog-container {
+  padding: 1ex;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+  }
+  .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .main-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    margin: 1ex 0 2ex 0;
+    font-size: 22px;
+    text-align: center;
+  }
+  .sub-title {
+    text-align: center;
+  }
+  .author {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2em;
+  }
+}
