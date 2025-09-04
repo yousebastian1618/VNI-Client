@@ -30,6 +30,44 @@ export const HOME_PAGE_IMAGES: any[] = [
   'assets/home-page/home-page-4.png',
 ]
 
+export const ABOUT_MESSAGE: any[] = [
+  {
+    name: '',
+    label: '',
+    image: null,
+    message: `Synapse NHP was derived from the biological term "synapse", which is the gap between neurons key for signalling and communications. Synapse NHP specializes in bridging the industry's needs of high quality, innovative products, complying with government regulations. With our panel of experts with decades of combined experience, Synapse NHP provides comprehensive solutions to bring your product to fruition with fast turnaround times.`,
+  },
+  {
+    name: '',
+    label: '',
+    image: null,
+    message: `Since our inception in 2015, Synapse NHP has completed over 300 NPN submissions, brought 500 products to market in 15+ countries globally. Our clients are typically on retainer, and integrate Synapse NHP into their core efforts, providing on-going support resulting in cascading breakthroughs for the brands we are involved in.`,
+  },
+  {
+    name: 'mission',
+    label: 'Mission',
+    image: '/assets/sample_1.jpg',
+    message: `To provide a bridge between the cornerstones of operations, R&D and regulatory compliance for our clients, enabling ground-breaking innovation and continuous improvements in their operations on the foundation of quality and regulatory compliance.<br><br>"Be like water, my friend" - Bruce Lee`
+  },
+  {
+    name: 'vision',
+    label: 'Vision',
+    image: '/assets/sample_2.jpg',
+    message: `Bring value to humanity through improvements to the health and wellness industry. Let's reshape the industry through continuous and deliberate actions.`
+  },
+  {
+    name: 'values',
+    label: 'Values',
+    image: '/assets/sample_3.jpg',
+    message: `Quality is a habit. Above all, good products speak for themselves. Building trust and establishing your reputation requires continuous good work, with sound logic surrounding quality. This takes experience and knowledge to ensure you're well-informed when it comes to ensuring quality consistently. We recognize the challenge, and are in a continuous pursuit to ensure up-to-date knowledge and expertise bring value to you.`
+  },
+  {
+    name: 'speed_disruption',
+    label: 'Speed & Disruption',
+    image: '/assets/sample_4.jpg',
+    message: `Forward thinking and problem-solving are required to navigate any industry. In this ever-changing world, consumers are consistently looking for new value in the products we serve. Speed and disruption are two foundational metrics we have to abide by to ensure success for our clients.`
+  }
+]
 
 export const WHO_WE_ARE = {
   title: "Who We Are",
