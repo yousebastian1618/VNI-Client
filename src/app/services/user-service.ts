@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {GqlService} from './gql-service';
-import {GET_USER_BY_TOKEN, LOGIN__GQL} from '../objects/gql';
+import {GET_USER_BY_TOKEN, LOGIN_GQL} from '../objects/gql';
 import {CookieService} from 'ngx-cookie-service';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
@@ -28,9 +28,9 @@ export class UserService {
       return acc;
     }, {});
     this.gqlService.gqlMutation(
-      LOGIN__GQL,
+      LOGIN_GQL,
       false,
-      { email: gqlInput.email, password: gqlInput.password },
+      { gqlInput },
       '',
       async (response) => {
         this.userObject.next(response.login.user);

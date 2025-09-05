@@ -19,9 +19,6 @@ export class ProductServices {
   imageSortingChanged: boolean = false;
   productsSubject = new BehaviorSubject<any[]>([]);
   products$ = this.productsSubject.asObservable();
-
-  originallyOrderedProducts: any[] = [];
-
   uploading: boolean = false;
   uploadingProgress: number = 0;
   numberOfUploadingFiles: number = 0;
@@ -51,7 +48,7 @@ export class ProductServices {
     this.uploadImageCreateData(file);
   }
   getImageSrc(img: any) {
-    return `${environment.server_url}/api/products/image/${img.id}`
+    return `/api/products/image/${img.id}`
   }
   uploadImageCreateData(file: File) {
     return this.gqlService.gqlMutation(
@@ -76,7 +73,7 @@ export class ProductServices {
   }
   getUploadPresignedURL(file: File, uid: string): Observable<any> {
     return this.http.post<any>(
-      `${environment.server_url}/api/products/get-upload-url/${uid}`, {
+      `/api/products/get-upload-url/${uid}`, {
         filename: file.name,
         contentType: file.type || 'application/octet-stream'
       }

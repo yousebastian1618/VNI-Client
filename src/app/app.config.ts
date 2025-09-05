@@ -3,7 +3,6 @@ import { HttpLink } from 'apollo-angular/http';
 import { provideHttpClient } from '@angular/common/http';
 import {ApplicationConfig, inject, provideBrowserGlobalErrorListeners, provideZoneChangeDetection} from '@angular/core';
 import { InMemoryCache } from '@apollo/client/core';
-import {environment} from '../environments/environment';
 import {provideRouter, withInMemoryScrolling} from '@angular/router';
 import {routes} from './app.routes';
 
@@ -13,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideApollo(() => {
       const httpLink = inject(HttpLink);
       return {
-        link: httpLink.create({uri: environment.server_graphql_url}),
+        link: httpLink.create({uri: "/graphql"}),
         cache: new InMemoryCache()
       }
     }),

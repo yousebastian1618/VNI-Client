@@ -42,9 +42,10 @@ export class GqlService {
         }
       },
       error: (err: any) => {
+        let errorMessage = typeof(err) === "object" ? err.message : err;
         errorCallback ? errorCallback(err) : ''
         this.homeService.stopLoading();
-        this.statusService.showStatus('error', `Something went wrong: ${err}}`);
+        this.statusService.showStatus('error', `Something went wrong: ${errorMessage}}`);
       }
     })
   }

@@ -74,14 +74,17 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "VNI-Client:build:production"
+            "local": {
+              "buildTarget": "VNI-Client:build:local",
+              "proxyConfig": "proxy/proxy.local.config.json"
             },
             "development": {
-              "buildTarget": "VNI-Client:build:development"
+              "buildTarget": "VNI-Client:build:development",
+              "proxyConfig": "proxy/proxy.dev.config.json"
             },
-            "local": {
-              "buildTarget": "VNI-Client:build:local"
+            "production": {
+              "buildTarget": "VNI-Client:build:production",
+              "proxyConfig": "proxy/proxy.prod.config.json"
             }
           },
           "defaultConfiguration": "development"

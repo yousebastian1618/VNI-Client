@@ -1,5 +1,15 @@
 import {gql} from '@apollo/client';
 
+
+export const BLOGS_GQL = gql`
+  query {
+    blogs {
+      id
+
+    }
+  }
+`
+
 export const PRODUCTS_GQL = gql`
   query {
     products {
@@ -47,16 +57,16 @@ export const SEND_INQUIRY_GQL = gql`
 
 export const GET_USER_BY_TOKEN = gql`
   query GetUserByToken {
-  getUserByToken {
-    id
-    email
+    getUserByToken {
+      id
+      email
+    }
   }
-}
 `
 
-export const LOGIN__GQL = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+export const LOGIN_GQL = gql`
+  mutation Login($gqlInput: UserLoginInput!) {
+    login(gqlInput: $gqlInput) {
       accessToken
       refreshToken
       user {
@@ -65,6 +75,4 @@ export const LOGIN__GQL = gql`
       }
     }
   }
-
-
 `
