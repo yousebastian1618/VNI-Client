@@ -9,6 +9,7 @@ import {HomeService} from './services/home-service';
 import {StatusBar} from './components/status-bar/status-bar';
 import {StatusService} from './services/status-service';
 import {UserService} from './services/user-service';
+import {BlogService} from './services/blog-service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class App implements OnInit {
   constructor(
     private modalService: ModalService,
     private productService: ProductServices,
+    private blogService: BlogService,
     private homeService: HomeService,
     private statusService: StatusService,
     private userService: UserService,
@@ -29,6 +31,7 @@ export class App implements OnInit {
   }
   ngOnInit() {
     this.userService.retrieveUserByToken();
+    this.blogService.fetchBlogs();
     this.productService.fetchProductsImages();
   }
   getIsModalOn() {

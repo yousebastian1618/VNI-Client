@@ -93,58 +93,6 @@ export const CONTACT_US_FORM: any[] = [
     }
   }
 ]
-export const BLOG_POST_FORM: any[] = [
-  {
-    name: 'paragraphs',
-    label: 'Paragraphs',
-    type: 'array',
-    info: '',
-    icon: '',
-    style: '',
-    required: false,
-    value: [],
-    errors: []
-  },
-  {
-    name: 'header',
-    label: 'Header',
-    type: 'text',
-    info: '',
-    icon: '',
-    style: '',
-    required: true,
-    value: '',
-    errors: []
-  },
-  {
-    name: 'subHeader',
-    label: 'Sub Header',
-    type: 'text',
-    info: '',
-    icon: '',
-    style: '',
-    required: true,
-    value: '',
-    errors: []
-  },
-  {
-    name: 'author',
-    label: 'Author',
-    type: 'text',
-    info: '',
-    icon: '',
-    style: '',
-    required: false,
-    value: '',
-    errors: []
-  },
-]
-export const PARAGRAPH_FORM: any = {
-  index: 0,
-  title: '',
-  body: ''
-}
-
 export const LOGIN_FORM: any[] = [
   {
     name: 'email',
@@ -169,6 +117,97 @@ export const LOGIN_FORM: any[] = [
     required: true,
     value: '',
     errors: ['NOT_EMPTY']
+  },
+]
+
+export const NEW_BLOG_FORM: any[] = [
+  {
+    name: 'title',
+    gqlKey: 'title',
+    label: 'Title',
+    type: 'text',
+    info: '',
+    icon: '',
+    style: '',
+    required: true,
+    value: '',
+    errors: ['NOT_EMPTY']
+  },
+  {
+    name: 'subtitle',
+    gqlKey: 'subtitle',
+    label: 'Subtitle',
+    type: 'text',
+    info: '',
+    icon: '',
+    style: '',
+    required: false,
+    value: '',
+    errors: []
+  },
+  {
+    name: 'author',
+    gqlKey: 'author',
+    label: 'Author',
+    type: 'text',
+    info: '',
+    icon: '',
+    style: '',
+    required: false,
+    value: '',
+    errors: []
+  },
+]
+
+export const NEW_BLOG_IMAGE_FORM: any = {
+  name: 'image',
+  gqlKey: 'image',
+  label: 'Image',
+  type: 'file',
+  info: '',
+  icon: '',
+  style: '',
+  required: false,
+  value: '',
+  errors: []
+}
+
+export const NEW_BLOG_PARAGRAPH_FORM: any[] = [
+  {
+    name: 'paragraph-title',
+    gqlKey: 'title',
+    label: 'Title',
+    type: 'text',
+    info: '',
+    icon: '',
+    style: '',
+    required: false,
+    value: '',
+    errors: []
+  },
+  {
+    name: 'paragraph-text',
+    gqlKey: 'text',
+    label: 'Paragraph',
+    type: 'textarea',
+    info: '',
+    icon: '',
+    style: '',
+    required: false,
+    value: '',
+    errors: []
+  },
+  {
+    name: 'paragraph-image',
+    gqlKey: 'image',
+    label: '',
+    type: '',
+    info: '',
+    icon: '',
+    style: '',
+    required: false,
+    value: '',
+    errors: []
   },
 ]
 

@@ -45,13 +45,10 @@ export class HomePage {
   getIntroductionIntervalTime() {
     return 5000;
   }
-  getMainBlog() {
-    return this.blogService.getBlogs()[0];
-  }
   getSampleProducts() {
     return this.productService.getProductImages();
   }
-  getSubBlogs() {
-    return this.blogService.getBlogs().slice(1);
+  getBlogs() {
+    return this.blogService.getBlogsObservable();
   }
 }

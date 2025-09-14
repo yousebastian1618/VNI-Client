@@ -1,0 +1,18 @@
+<div class="new-paragraph-container">
+  <div class="title-style paragraph-label">
+    Paragraph {{ index + 1 }}
+  </div>
+  <input type="file" style="display: none;"/>
+  @if (paragraphImageUrl$ | async) {
+    <div class="paragraph-image-container">
+      <app-icon class="x-button" [icon]="'x'" [tooltip]="'Remove Image'" (click)="removeImage()" />
+      <img class="paragraph-image" [src]="(paragraphImageUrl$ | async)!" alt="" width="1" height="1" priority />
+    </div>
+  } @else {
+    <app-buttons [buttons]="getAddBlogImageButtons()" (callBack)="onImageChosen($event)"/>
+  }
+  <app-form [form]="paragraph" />
+  <button type="button" class="modified-button remove-paragraph-button" (click)="removeBlogParagraph()">
+    {{ getRemoveParagraphButtons().label }}
+  </button>
+</div>

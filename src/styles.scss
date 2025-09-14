@@ -284,3 +284,8 @@ body {
      transform: translateY(0);
    }
  }
+ .horizontal-line {
+   border-bottom: 1px solid var(--default-color-dark-grey);
+   margin: 2rem auto;
+   width: 70%;
+ }

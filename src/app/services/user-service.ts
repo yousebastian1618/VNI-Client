@@ -60,7 +60,7 @@ export class UserService {
       async (response: any) => {
         this.userObject.next(response.getUserByToken)
         if (this.userObject.getValue()) {
-          await this.router.navigate(['/']);
+          // await this.router.navigate(['/']);
         }
       },
       () => {},

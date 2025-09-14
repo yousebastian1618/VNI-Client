@@ -31,10 +31,12 @@
     "@angular/router": "^20.2.0",
     "@apollo/client": "^4.0.3",
     "apollo-angular": "^11.0.0",
+    "dexie": "^4.2.0",
     "graphql": "^16.11.0",
     "ngx-cookie-service": "^20.1.0",
     "rxjs": "^7.8.2",
     "tslib": "^2.3.0",
+    "uuid": "^13.0.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {

@@ -89,6 +89,14 @@ export const ADMIN_MANAGE_BLOGS_BUTTONS: any[] = [
     loading: false
   },
   {
+    name: 'reorder|blogs',
+    label: 'check',
+    func: 'reorder|blogs',
+    style: '',
+    type: 'icon',
+    loading: false
+  },
+  {
     name: 'delete|blogs',
     label: 'delete',
     func: 'delete|blogs',
@@ -107,16 +115,7 @@ export const ADMIN_MANAGE_BLOG_BUTTONS: any[] = [
     style: 'color: var(--default-color-red); font-size: 1rem',
     type: 'icon',
     tooltip: 'Edit'
-  },
-  {
-    name: 'delete|blog',
-    label: 'delete',
-    func: 'delete|blog',
-    style: 'color: var(--default-color-red); font-size: 1rem',
-    type: 'icon',
-    tooltip: 'Delete',
-    loading: false
-  },
+  }
 ]
 
 export const ADMIN_LOGIN_BUTTONS: any[] = [
@@ -135,6 +134,77 @@ export const ADMIN_FORGOT_PASSWORD_BUTTONS: any[] = [
     name: 'find|password',
     label: 'SEND',
     func: 'find|password',
+    style: '',
+    type: 'button',
+    loading: false
+  }
+]
+
+export const ADD_NEW_PARAGRAPH_BUTTONS: any[] = [
+  {
+    name: "new|paragraph",
+    label: "NEW PARAGRAPH +",
+    func: "new|paragraph",
+    style: '',
+    type: 'button',
+    loading: false
+  }
+]
+
+export const ADD_NEW_BLOG_IMAGE_BUTTONS: any[] = [
+  {
+    name: "new|blog-image",
+    label: "ADD IMAGE +",
+    func: "new|blog-image",
+    style: '',
+    type: 'button',
+    loading: false
+  }
+]
+
+export const REMOVE_PARAGRAPH_BUTTONS: any[] = [
+  {
+    name: "delete|paragraph",
+    label: "REMOVE PARAGRAPH -",
+    func: "delete|paragraph",
+    style: 'color: white; background-color: var(--default-color-red)',
+    type: 'button',
+    loading: false
+  }
+]
+
+export const PREVIEW_NEW_BLOG: any[] = [
+  {
+    name: "cancel",
+    label: "Cancel",
+    func: "cancel",
+    style: 'color: white; background-color: var(--default-color-red)',
+    type: 'button',
+    loading: false
+  },
+  {
+    name: "preview|blog",
+    label: "PREVIEW",
+    func: "preview|blog",
+    style: '',
+    type: 'button',
+    loading: false
+  }
+]
+
+export const SUBMIT_BLOG_BUTTONS: any[] = [
+  {
+    name: "goback|crud-blog",
+    label: "Go Back",
+    func: "goback|crud-blog",
+    style: '',
+    type: 'button',
+    loading: false
+  },
+  {
+    name: "submit|new-blog",
+    label: "SUBMIT",
+    func: "submit|new-blog",
     style: '',
     type: 'button',
     loading: false

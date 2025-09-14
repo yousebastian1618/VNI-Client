@@ -1,4 +1,4 @@
-import {Component, Input, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output, SimpleChanges} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -11,7 +11,12 @@ import {FormsModule} from '@angular/forms';
 })
 export class TextInput {
   @Input() element: any = null;
-  constructor() {
+  @Output() handleChange = new EventEmitter<null>();
+  constructor(
+  ) {
 
+  }
+  outputHandleChange() {
+    this.handleChange.emit(this.element);
   }
 }

@@ -32,9 +32,6 @@ export class BlogDetail implements OnInit, OnDestroy {
   getBlogSubtitle() {
     return this.blogService.currentBlogSubtitle;
   }
-  getBlogImages() {
-    return this.blogService.currentBlogImages;
-  }
   getBlogParagraphs() {
     return this.blogService.currentBlogParagraphs;
   }
@@ -44,10 +41,14 @@ export class BlogDetail implements OnInit, OnDestroy {
   getBlogAuthor() {
     return this.blogService.currentBlogAuthor;
   }
+  getImageSrc(image: string) {
+    return this.blogService.getBlogImageSrc(image);
+  }
   goBack() {
     this.location.back();
   }
   ngOnDestroy() {
+    this.blogService.resetCurrentBlog();
     sessionStorage.clear();
   }
 }

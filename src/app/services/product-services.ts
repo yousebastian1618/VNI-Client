@@ -55,7 +55,7 @@ export class ProductServices {
       CREATE_PRODUCT_GQL,
       true,
       {},
-      'Uploaded.',
+      '',
       (response: any) => {
         this.uploadImageToCloud(file, response.createProduct);
       },

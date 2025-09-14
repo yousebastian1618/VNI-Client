@@ -22,22 +22,21 @@ export class MainBlog {
     return this.blog;
   }
   getMainImage() {
-    return this.blog.mainImage;
+    return this.blog ? this.blogService.getBlogImageSrc(this.blog.paragraphs[0].image) : 'assets/faq.png';
   }
   getTitle() {
     return this.blog.title;
   }
   getSubTitle() {
-    return this.blog.subtitle;
+    return this.blog === undefined ? '' : this.blog.subtitle;
   }
   getAuthor() {
-    return this.blog.author;
+    return this.blog === undefined ? '' : this.blog.author;
   }
   selectBlog(blog: any) {
-    sessionStorage.setItem('blog', JSON.stringify(blog));
     this.blogService.setCurrentBlog(blog);
   }
   goToBlog(blog: any) {
-    return `/blog/${blog.id.slice(0, 10)}`;
+    return blog ? `/blog/${blog.id.slice(0, 10)}` : '';
   }
 }

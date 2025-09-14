@@ -6,15 +6,17 @@
   <div class="title-style">
     Blogs
   </div>
-  <div class="admin-top-buttons">
-    <app-buttons [buttons]="getAdminManageBlogsButtons()" />
-  </div>
+  @if (showAdminCrudBlog()) {
+    <div class="admin-top-buttons">
+      <app-buttons [buttons]="getAdminManageBlogsButtons()" />
+    </div>
+  }
   @if (isSortingBlogs()) {
     <p class="drag-and-drop-message">** Drag and drop blogs to reorder index **</p>
   }
   <div class="blog-element-container">
     <div class="blogs">
-      @for (blog of getBlogs(); track blog.id) {
+      @for (blog of getTempBlogs(); track blog.id) {
         <div
           class="blog"
           [draggable]="toggleDraggable()"

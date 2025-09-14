@@ -1,0 +1,56 @@
+@if (!isPreviewing()) {
+  <div class="back-button button-style" (click)="goBack()">
+    <app-icon class="back-button-icon" [icon]="'back'" />
+    <span>Go Back</span>
+  </div>
+  <div class="new-blog-container">
+    <div class="title-style">
+      New Blog
+    </div>
+    <div class="blog-form-container">
+      <app-form [form]="getNewBlogForm()" />
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="paragraph-sections-container">
+      <div class="title-style">
+        Paragraphs
+      </div>
+      @for (paragraph of getNewBlogParagraphForm(); track paragraph; let i = $index) {
+        <app-new-paragraph [paragraph]="paragraph" [index]="i"/>
+      }
+    </div>
+    <div class="new-paragraph-button">
+      <app-buttons [buttons]="getAddNewParagraphButton()" />
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="preview-buttons">
+      <app-buttons [buttons]="getPreviewButtons()" />
+    </div>
+  </div>
+} @else {
+  <div class="preview-container">
+    <div class="preview-title title-style" [innerText]="getPreviewTitle()"></div>
+    <div class="preview-subtitle title-style" [innerText]="getPreviewSubtitle()">
+    </div>
+    <div class="preview-info">
+      <div class="preview-info-author" [innerText]="getPreviewAuthor()"></div>
+    </div>
+    <div class="preview-body">
+      <div class="preview-body-paragraphs">
+        @for (paragraph of getPreviewParagraphs(); track paragraph) {
+          <div class="preview-body-paragraph">
+            @if (paragraph.image) {<img class="paragraph-image" [src]="paragraph.image" alt="" width="50" height="50" />}
+            <div class="paragraph-title title-style-left" [innerText]="paragraph.title"></div>
+            <div class="paragraph" [innerText]="paragraph.text"></div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="horizontal-line"></div>
+  <div class="submit-buttons">
+    <app-buttons [buttons]="getSubmitBlogButtons()" />
+  </div>
+}
+
+

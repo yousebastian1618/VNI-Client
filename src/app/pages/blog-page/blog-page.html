@@ -11,7 +11,7 @@
       <app-main-blog [blog]="getMainBlog()" />
     </div>
     <div class="sub-blogs">
-      @for (blog of getSubBlogs(); track blog.title) {
+      @for (blog of getSubBlogs(); track blog.id) {
         <div class="sub-blog">
           <app-sub-blog [blog]="blog"/>
         </div>

@@ -24,10 +24,10 @@ export class NavigationBar {
     }
     return navigationBarElements;
   }
-  goInContainer(sectionId: string | undefined) {
+  async goInContainer(sectionId: string | undefined) {
     if (!sectionId) return;
     if (sectionId === 'logout') {
-      this.crudService.handleCrud(sectionId, null);
+      await this.crudService.handleCrud(sectionId, null);
       return;
     }
     const container = document.querySelector('.home-container') as HTMLElement | null;

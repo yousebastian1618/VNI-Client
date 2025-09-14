@@ -28,16 +28,13 @@ export class SubBlog {
     return this.blog;
   }
   getMainImage() {
-    return this.blog.mainImage;
+    return this.blogService.getBlogImageSrc(this.blog.paragraphs[0].image);
   }
   getTitle() {
     return this.blog.title;
   }
   getSubTitle() {
     return this.blog.subtitle;
-  }
-  getAuthor() {
-    return this.blog.author;
   }
   selectBlog(blog: any) {
     if (this.blogService.selectingBlogs) {

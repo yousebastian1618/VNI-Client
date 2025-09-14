@@ -9,13 +9,14 @@ export class HomeService {
   constructor() {
   }
   startLoading() {
-    this.loadingCount += 1;
+    // this.loadingCount += 1;
     this.loading = true;
   }
   stopLoading() {
-    this.loadingCount -= 1;
-    if (this.loadingCount <= 0) {
-      this.loading = false;
-    }
+    this.loading = false;
+    // this.loadingCount -= 1;
+    // if (this.loadingCount <= 0) {
+    //   this.loading = false;
+    // }
   }
 }

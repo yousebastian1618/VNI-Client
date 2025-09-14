@@ -1,10 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CrudService} from '../../services/crud-service';
 import {ProductServices} from '../../services/product-services';
 import {Icon} from '../icon/icon';
 import {BlogService} from '../../services/blog-service';
 import {ACCEPTABLE_UPLOADING_FILE_TYPES} from '../../objects/objects';
 import {NgOptimizedImage} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-buttons',
@@ -18,14 +19,15 @@ import {NgOptimizedImage} from '@angular/common';
 export class Buttons {
   @Input() buttons: any[] = [];
   @Input() element: any = {};
+  @Output() callBack = new EventEmitter<{ file: File }>();
 
   constructor(
     private crudService: CrudService,
     private productService: ProductServices,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router: Router,
   ) {
   }
-
   getButtons() {
     return this.buttons;
   }
@@ -34,7 +36,16 @@ export class Buttons {
       (document.getElementById("file-upload-input") as HTMLInputElement)!.click();
       return;
     }
-    this.crudService.handleCrud(button, this.element);
+    if (button.name === 'new|blog') {
+      await this.router.navigate(['new-blog'])
+      return;
+    }
+    if (button.name.includes('new|blog-image')) {
+      this.blogService.currentParagraphIndex = this.buttons[0].name.split('|')[2];
+      (document.getElementById("file-upload-input") as HTMLInputElement)!.click();
+      return;
+    }
+    await this.crudService.handleCrud(button, this.element);
     event.stopPropagation();
   }
   toggleButtonClass(button: any) {
@@ -112,13 +123,28 @@ export class Buttons {
         }
         return 'display-none';
       }
+      if (what === 'blogs') {
+        if (this.blogService.sortingBlogs) {
+          if (this.blogService.blogSorted) {
+            return '';
+          }
+        }
+        return 'display-none';
+      }
     }
     return '';
   }
   getAcceptedFileInputType() {
     return ACCEPTABLE_UPLOADING_FILE_TYPES;
   }
+  toggleMultipleUpload() {
+    return this.router.url !== '/new-blog';
+  }
   async uploadContent(target: any) {
+    if (this.router.url === '/new-blog') {
+      await this.addingParagraphImage(target);
+      return;
+    }
     // this.contentService.totalUploadingProgress = {};
     this.productService.uploading = true;
     this.productService.numberOfUploadingFiles = target.files.length;
@@ -145,5 +171,9 @@ export class Buttons {
       // formData.append('uuid', newUUID);
       // this.productService.uploadImage(formData, i);
     }
+  }
+  async addingParagraphImage(target: any) {
+    let file = target.files[0];
+    this.callBack.emit({ file });
   }
 }

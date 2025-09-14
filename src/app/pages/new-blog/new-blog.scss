@@ -1,0 +1,72 @@
+.new-blog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .blog-form-container {
+    margin: auto;
+  }
+  .paragraph-sections-container {
+
+  }
+  .new-paragraph-button {
+    margin: auto;
+  }
+  .preview-buttons {
+    margin: auto;
+  }
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15%;
+  background-color: white;
+  padding: 2em 4em;
+  .preview-title {
+    font-size: 2.3rem;
+  }
+  .preview-subtitle {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--default-color-dark-grey);
+  }
+  .preview-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    .preview-info-author {
+      font-weight: bold;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--default-color-dark-grey);
+    }
+  }
+  .preview-body {
+    .preview-body-paragraphs {
+      .preview-body-paragraph {
+        .paragraph-image {
+          width: 100%;
+          height: auto;
+        }
+        .paragraph-title {
+          font-size: 1.6rem;
+          margin: 1rem 0;
+        }
+        .paragraph {
+          text-align: justify;
+          font-size: 1.1rem;
+          margin: 2rem 0;
+        }
+      }
+
+    }
+  }
+}
+.submit-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0 2rem 0;
+}

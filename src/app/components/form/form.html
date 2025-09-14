@@ -8,7 +8,7 @@
         }
       </label>
       @if (getTextInputOptions().includes(inputElement.type)) {
-        <app-text-input [element]="inputElement" class="app-text-input" />
+        <app-text-input [element]="inputElement" class="app-text-input" (handleChange)="handleChange()"/>
       }
     }
   </form>

@@ -1,38 +1,49 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SubBlog} from '../../components/sub-blog/sub-blog';
 import {Icon} from '../../components/icon/icon';
-import {Location} from '@angular/common';
 import {Buttons} from '../../components/buttons/buttons';
 import {ADMIN_MANAGE_BLOGS_BUTTONS} from '../../objects/buttons';
 import {BlogService} from '../../services/blog-service';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user-service';
 
 @Component({
   selector: 'app-blogs',
   imports: [
     SubBlog,
     Icon,
-    Buttons
+    Buttons,
   ],
   templateUrl: './blogs.html',
   styleUrl: './blogs.scss'
 })
-export class Blogs implements OnDestroy {
+export class Blogs implements OnInit, OnDestroy {
   draggingElement: any = null;
   dragOverElement: any = null;
   constructor(
-    private location: Location,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router: Router,
+    private userService: UserService
   ) {}
-  getBlogs() {
-    return this.blogService.getBlogs();
+  ngOnInit() {
+    this.blogService.getBlogsObservable()
+      .subscribe(arr => {
+        this.blogService.tempBlogs = structuredClone(arr);
+      });
   }
-
-  goBack() {
-    this.location.back();
+  getTempBlogs() {
+    return this.blogService.tempBlogs;
+  }
+  async goBack() {
+    await this.router.navigate(['/']);
   }
 
   getAdminManageBlogsButtons() {
     return ADMIN_MANAGE_BLOGS_BUTTONS;
+  }
+
+  showAdminCrudBlog() {
+    return this.userService.isAdmin() && this.router.url === '/blogs';
   }
 
   toggleDraggable() {
@@ -44,11 +55,11 @@ export class Blogs implements OnDestroy {
   }
 
   onDragStart(index: number) {
-    this.draggingElement = this.blogService.getBlogs()[index];
+    this.draggingElement = this.blogService.tempBlogs[index];
   }
 
   onDragEnter(event: any, index: number) {
-    this.dragOverElement = this.blogService.getBlogs()[index];
+    this.dragOverElement = this.blogService.tempBlogs[index];
     this.swap();
     event.preventDefault();
   }
@@ -70,7 +81,7 @@ export class Blogs implements OnDestroy {
     let originalDragOverElementIndex = this.dragOverElement.index;
     if (originalDraggingElementIndex === originalDragOverElementIndex) return;
     this.draggingElement.index = this.dragOverElement.index;
-    this.blogService.getBlogs().forEach((element: any) => {
+    this.blogService.tempBlogs.forEach((element: any) => {
       if (originalDraggingElementIndex < originalDragOverElementIndex) {
         if (element.id !== this.draggingElement.id && element.index > originalDraggingElementIndex && element.index <= this.draggingElement.index) {
           element.index -= 1;
@@ -82,10 +93,11 @@ export class Blogs implements OnDestroy {
       }
     })
     this.sortBlogs();
+    this.blogService.blogSorted = true;
   }
 
   sortBlogs() {
-    this.blogService.getBlogs().sort((a: any, b: any) => {
+    this.blogService.tempBlogs.sort((a: any, b: any) => {
       if (a.index < b.index) {
         return -1;
       }

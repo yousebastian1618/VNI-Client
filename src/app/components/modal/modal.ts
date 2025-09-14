@@ -51,7 +51,7 @@ export class Modal implements OnDestroy {
       return;
     }
     let button = "view|image";
-    this.crudService.handleCrud(button, image);
+    await this.crudService.handleCrud(button, image);
   }
   isAdmin() {
     return this.userService.isAdmin();

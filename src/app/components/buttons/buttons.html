@@ -6,11 +6,10 @@
       }
       @else {
         @if (button.type === 'button') {
-
-          <button type="button" class="modified-button button" [class]="toggleButtonClass(button)" (click)="handleClick($event, button)">
+          <button type="button" class="modified-button button" [class]="toggleButtonClass(button)" [style]="button.style" (click)="handleClick($event, button)">
             {{ button.label }}
           </button>
-          <input type="file" id="file-upload-input" multiple
+          <input type="file" id="file-upload-input" [multiple]="toggleMultipleUpload()"
                  (input)="uploadContent($event.target)" [accept]="getAcceptedFileInputType()"
                  style="display:none;" />
         } @else if (button.type === 'icon') {

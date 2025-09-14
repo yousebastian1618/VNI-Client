@@ -21,8 +21,8 @@
     <div class="blog-paragraphs">
       @for (paragraph of getBlogParagraphs(); track paragraph.text; let i = $index) {
         {{ paragraph.url }}
-        @if (getBlogImages()[i] !== null) {
-          <img class="blog-image" [ngSrc]="getBlogImages()[i].url" alt="" width="200" height="200" priority />
+        @if (paragraph.image !== null) {
+          <img class="blog-image" [ngSrc]="getImageSrc(paragraph.image)" alt="" width="200" height="200" priority />
         }
         <div class="blog-paragraph-title title-style-left">{{ paragraph.title }}</div>
         <p class="blog-paragraph" [innerText]="paragraph.text"></p>

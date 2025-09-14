@@ -5,7 +5,6 @@ import {Subscription} from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import {HomeService} from './home-service';
 import {StatusService} from './status-service';
-import {UserService} from './user-service';
 import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({

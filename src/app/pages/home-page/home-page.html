@@ -18,7 +18,7 @@
     <app-regulatory-compliance-page />
   </div>
   <div class="blog" id="blogs">
-    <app-blog-page [mainBlog]="getMainBlog()" [subBlogs]="getSubBlogs()"/>
+    <app-blog-page [blogs]="(getBlogs() | async) ?? []"/>
   </div>
   <div class="help" id="help">
     <app-faq />
