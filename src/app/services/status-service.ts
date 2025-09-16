@@ -7,11 +7,13 @@ export class StatusService {
   type: string = '';
   message: string = '';
   showingStatus: boolean = false;
-  statusTime: number = 3000;
+  statusTime: number = 5000;
   statusTimeout: any = null;
+  showUndo: boolean = false;
   constructor() {
   }
-  showStatus(type: string, message: string) {
+  showStatus(type: string, message: string, showUndo: boolean = false) {
+    this.showUndo = showUndo;
     this.type = type;
     this.message = message;
     clearTimeout(this.statusTimeout);

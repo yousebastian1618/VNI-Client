@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Form} from '../../components/form/form';
 import {FORGOT_PASSWORD_FORM, LOGIN_FORM} from '../../objects/forms';
 import {NgOptimizedImage} from '@angular/common';
@@ -19,7 +19,7 @@ import {UserService} from '../../services/user-service';
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss'
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   forgotPassword: boolean = false;
   constructor(
     private router: Router,

@@ -1,10 +1,37 @@
 .status-bar-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  .status-type {
-    font-weight: bold;
-    font-size: 1.4rem;
+  .status-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .status-type {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0.5rem 0.5rem 0 0.5rem;
+    }
+  }
+  .undo-container {
+    cursor: pointer;
+    position: absolute;
+    left: 95%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .undo-icon {
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+    }
+    & > * {
+      margin: 2px;
+    }
+    &:hover {
+      font-weight: bold;
+      color: var(--brand-kit-color-1);
+    }
   }
 }

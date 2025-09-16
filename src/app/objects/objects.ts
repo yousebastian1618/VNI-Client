@@ -557,6 +557,10 @@ export const ICON_MAP: any = {
     name: 'password',
     icon: 'fi fi-rr-lock'
   },
+  swap: {
+    name: 'swap',
+    icon: 'fi fi-ss-swap'
+  },
   name: {
     name: 'name',
     icon: 'fi fi-rr-id-card-clip-alt'

@@ -20,11 +20,24 @@ export class InquiryService {
   getInquiryForm() {
     return this.inquiryForm;
   }
+  generateGqlInput() {
+    return {
+      firstName: this.inquiryForm[0].value,
+      lastName: this.inquiryForm[1].value,
+      email: this.inquiryForm[2].value,
+      subject: this.inquiryForm[3].value,
+      message: this.inquiryForm[4].value
+    }
+  }
+  toggleDisableInquiryForm(toggle: boolean) {
+    this.getInquiryForm().forEach((element: any) => {
+      element.disabled = toggle;
+    })
+  }
   sentInquiry() {
-    const gqlInput = this.inquiryForm.reduce((acc: any, elem: any) => {
-      acc[elem.gqlKey] = elem.value;
-      return acc;
-    }, {});
+    let gqlInput = this.generateGqlInput();
+    CONTACT_US_BUTTONS[0].loading = true;
+    this.toggleDisableInquiryForm(true);
     return this.gqlService.gqlMutation(
       SEND_INQUIRY_GQL,
       false,
@@ -33,9 +46,11 @@ export class InquiryService {
       () => {
         this.resetInquiryForm();
         CONTACT_US_BUTTONS[0].loading = false;
+        this.toggleDisableInquiryForm(false);
       },
-      () => {},
-      true
+      () => {
+        CONTACT_US_BUTTONS[0].loading = false;
+      },
     )
   }
   resetInquiryForm() {

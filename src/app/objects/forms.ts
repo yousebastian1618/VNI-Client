@@ -1,5 +1,5 @@
 export const TEXT_INPUT_OPTIONS: string[] = [
-  'text', 'textarea', 'email'
+  'text', 'textarea', 'email', 'password'
 ]
 
 export const CONTACT_US_FORM: any[] = [
@@ -12,6 +12,7 @@ export const CONTACT_US_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: {
       "NOT_EMPTY": {
@@ -29,6 +30,7 @@ export const CONTACT_US_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: {
       "NOT_EMPTY": {
@@ -46,6 +48,7 @@ export const CONTACT_US_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: {
       "NOT_EMPTY": {
@@ -67,6 +70,7 @@ export const CONTACT_US_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: {
       "NOT_EMPTY": {
@@ -84,6 +88,7 @@ export const CONTACT_US_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: {
       "NOT_EMPTY": {
@@ -103,6 +108,7 @@ export const LOGIN_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: ['NOT_EMPTY']
   },
@@ -110,11 +116,12 @@ export const LOGIN_FORM: any[] = [
     name: 'password',
     gqlKey: 'password',
     label: 'Password',
-    type: 'text',
+    type: 'password',
     info: '',
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: ['NOT_EMPTY']
   },
@@ -130,8 +137,14 @@ export const NEW_BLOG_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
-    errors: ['NOT_EMPTY']
+    errors: {
+      "NOT_EMPTY": {
+        params: null,
+        message: "Title cannot be empty"
+      },
+    }
   },
   {
     name: 'subtitle',
@@ -142,6 +155,7 @@ export const NEW_BLOG_FORM: any[] = [
     icon: '',
     style: '',
     required: false,
+    disabled: false,
     value: '',
     errors: []
   },
@@ -154,6 +168,7 @@ export const NEW_BLOG_FORM: any[] = [
     icon: '',
     style: '',
     required: false,
+    disabled: false,
     value: '',
     errors: []
   },
@@ -168,6 +183,7 @@ export const NEW_BLOG_IMAGE_FORM: any = {
   icon: '',
   style: '',
   required: false,
+  disabled: false,
   value: '',
   errors: []
 }
@@ -182,6 +198,7 @@ export const NEW_BLOG_PARAGRAPH_FORM: any[] = [
     icon: '',
     style: '',
     required: false,
+    disabled: false,
     value: '',
     errors: []
   },
@@ -194,6 +211,7 @@ export const NEW_BLOG_PARAGRAPH_FORM: any[] = [
     icon: '',
     style: '',
     required: false,
+    disabled: false,
     value: '',
     errors: []
   },
@@ -206,6 +224,7 @@ export const NEW_BLOG_PARAGRAPH_FORM: any[] = [
     icon: '',
     style: '',
     required: false,
+    disabled: false,
     value: '',
     errors: []
   },
@@ -220,6 +239,7 @@ export const FORGOT_PASSWORD_FORM: any[] = [
     icon: '',
     style: '',
     required: true,
+    disabled: false,
     value: '',
     errors: ['NOT_EMPTY']
   },

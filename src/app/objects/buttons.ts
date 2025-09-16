@@ -115,6 +115,14 @@ export const ADMIN_MANAGE_BLOG_BUTTONS: any[] = [
     style: 'color: var(--default-color-red); font-size: 1rem',
     type: 'icon',
     tooltip: 'Edit'
+  },
+  {
+    name: 'delete|blog',
+    label: 'delete',
+    func: 'delete|blog',
+    style: 'color: var(--default-color-red); font-size: 1rem',
+    type: 'icon',
+    tooltip: 'Delete'
   }
 ]
 

@@ -78,6 +78,7 @@ export const BLOGS_GQL = gql`
       subtitle
       author
       paragraphs {
+        id
         title
         text
         image
@@ -95,6 +96,7 @@ export const CREATE_BLOG = gql`
       subtitle
       author
       paragraphs {
+        id
         title
         text
         image
@@ -110,13 +112,43 @@ export const REORDER_BLOGS = gql`
   }
 `
 
-// mutation DeleteProductsGQL($uids: [String!]!) {
-//   deleteProducts(uids: $uids) {
-//     id
-//     index
-//     uploadedAt
-//   }
-// }
+export const UPDATE_BLOG = gql`
+  mutation UpdateBlog($gqlInput: BlogUpdateInput!) {
+    updateBlog(gqlInput: $gqlInput) {
+      id
+      title
+      subtitle
+      author
+      paragraphs {
+        id
+        title
+        text
+        image
+        index
+      }
+    }
+  }
+`
+
+
+export const DELETE_BLOG = gql`
+  mutation DeleteBlog($uid: String!) {
+    deleteBlog(uid: $uid) {
+      id
+      title
+      subtitle
+      author
+      index
+      paragraphs {
+        id
+        title
+        text
+        image
+        index
+      }
+    }
+  }
+`
 
 export const DELETE_BLOGS = gql`
   mutation DeleteBlogs($uids: [String!]!) {
@@ -127,6 +159,7 @@ export const DELETE_BLOGS = gql`
       author
       index
       paragraphs {
+        id
         title
         text
         image

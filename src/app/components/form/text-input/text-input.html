@@ -6,6 +6,7 @@
       cols="80"
       [placeholder]="element.label"
       [(ngModel)]="element.value"
+      [disabled]="element.disabled"
       (change)="outputHandleChange()"
     ></textarea>
   } @else {
@@ -16,6 +17,7 @@
       [id]="element.name"
       [(ngModel)]="element.value"
       (change)="outputHandleChange()"
+      [disabled]="element.disabled"
     />
   }
 </span>

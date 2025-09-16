@@ -11,12 +11,20 @@ import {CookieService} from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class GqlService {
+  timeout: any = null;
+  timeoutSeconds: number = 5500;
+  undoAction: () => void = () => {};
   constructor(
     private apollo: Apollo,
     private homeService: HomeService,
     private statusService: StatusService,
     private cookieService: CookieService
   ) {
+  }
+  undo() {
+    this.undoAction();
+    clearTimeout(this.timeout);
+    this.undoAction = () => {};
   }
 
   gqlQuery<TData = any>(query: DocumentNode, needAuth: boolean = true, message?: string, nextCallback?: (data: TData) => void, errorCallback?: (err: any) => void, loading: boolean = false): Subscription {
@@ -49,7 +57,7 @@ export class GqlService {
     })
   }
 
-  gqlMutation(mutation: DocumentNode, needAuth: boolean = true, variables?: Record<string, any>, message: string = '', nextCallback?: (data: any) => void, errorCallback?: (err: any) => void, loading: boolean = false): Subscription {
+  gqlMutation(mutation: DocumentNode, needAuth: boolean = true, variables?: Record<string, any>, message: string = '', nextCallback?: (data?: any) => void, errorCallback?: (err?: any) => void, loading: boolean = false, undo: boolean = false, undoCallback?: () => void) {
     if (loading) {
       this.homeService.startLoading();
     }
@@ -62,6 +70,11 @@ export class GqlService {
       variables,
       context: { headers }
     };
+    if (undo) {
+      this.undoAction = undoCallback!;
+      this.gqlMutationTimer(opts, message, nextCallback, errorCallback, undoCallback);
+      return;
+    }
     return this.apollo.mutate<any>(
       opts,
     )
@@ -80,7 +93,22 @@ export class GqlService {
       }
     })
   }
-
-
-
+  gqlMutationTimer(opts: any, message: string, nextCallback: any, errorCallback: any, undoCallback: any): any {
+    nextCallback ? nextCallback() : null;
+    if (message && message !== '') {
+      this.statusService.showStatus('success', message, true);
+    }
+    errorCallback ? errorCallback() : null;
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      return this.apollo.mutate<any>(
+        opts,
+      ).subscribe({
+        next: () => {
+          this.undoAction = () => {};
+          clearTimeout(this.timeout);
+        }
+      });
+    }, this.timeoutSeconds);
+  }
 }

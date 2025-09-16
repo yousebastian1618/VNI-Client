@@ -12,7 +12,7 @@
             {{ footerElement.header.label }}
           </div>
           @for (footerElementChild of footerElement.elements; track footerElementChild.name) {
-            <span [style]="'width: fit-content;'" [class]="footerElementChild.name === 'disclaimer-message' ? 'disclaimer' : 'footer-element-child-font-family text-curser-pointer'">
+            <span (click)="goInContainer(footerElementChild.name)" [style]="'width: fit-content;'" [class]="footerElementChild.name === 'disclaimer-message' ? 'disclaimer' : 'footer-element-child-font-family text-curser-pointer'">
               {{ footerElementChild.label }}
             </span>
           }

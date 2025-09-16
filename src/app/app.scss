@@ -2,10 +2,12 @@
   .status {
     position: fixed;
     left: 0;
-    top: 0;
+    top: 100%;
+    transform: translateY(-100%);
     width: 100%;
-    padding: 1% 0;
+    padding: 0.5rem 0;
     z-index: 800;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
   .loading {
     position: fixed;

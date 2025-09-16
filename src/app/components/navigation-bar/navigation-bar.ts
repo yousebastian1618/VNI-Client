@@ -15,7 +15,7 @@ import {CrudService} from '../../services/crud-service';
 export class NavigationBar {
   constructor(
     private userService: UserService,
-    private crudService: CrudService
+    private crudService: CrudService,
   ) {}
   getNavigationBarElements() {
     let navigationBarElements = [...NAVIGATION_BAR_ELEMENTS];
@@ -25,18 +25,6 @@ export class NavigationBar {
     return navigationBarElements;
   }
   async goInContainer(sectionId: string | undefined) {
-    if (!sectionId) return;
-    if (sectionId === 'logout') {
-      await this.crudService.handleCrud(sectionId, null);
-      return;
-    }
-    const container = document.querySelector('.home-container') as HTMLElement | null;
-    const target = document.querySelector(`.${CSS.escape(sectionId)}`) as HTMLElement | null; // or use #id
-    if (!container || !target) return;
-    const containerRect = container.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const headerOffset = 0; // adjust as needed
-    const top = targetRect.top - containerRect.top + container.scrollTop - headerOffset;
-    window.scrollTo({ top: top, behavior: 'smooth' });
+    await this.crudService.goInContainer(sectionId);
   }
 }

@@ -5,7 +5,7 @@
   </div>
   <div class="new-blog-container">
     <div class="title-style">
-      New Blog
+      {{ getBlogCrudState() === 'create' ? 'New Blog' : 'Update Blog' }}
     </div>
     <div class="blog-form-container">
       <app-form [form]="getNewBlogForm()" />
@@ -16,6 +16,11 @@
         Paragraphs
       </div>
       @for (paragraph of getNewBlogParagraphForm(); track paragraph; let i = $index) {
+        @if (i !== 0) {
+          <div class="swap-icon-container">
+            <app-icon class="swap-icon" [icon]="'swap'" [tooltip]="'Swap Order'" (click)="swapOrder(i-1, i)"/>
+          </div>
+        }
         <app-new-paragraph [paragraph]="paragraph" [index]="i"/>
       }
     </div>

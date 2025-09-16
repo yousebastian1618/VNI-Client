@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Icon} from "../../components/icon/icon";
-import {AsyncPipe, Location, NgOptimizedImage} from '@angular/common';
+import {Location} from '@angular/common';
 import {BlogService} from '../../services/blog-service';
 import {Form} from '../../components/form/form';
 import {Buttons} from '../../components/buttons/buttons';
@@ -28,6 +28,7 @@ export class NewBlog implements OnInit, OnDestroy {
 
   }
   ngOnInit() {
+    this.blogService.crudState = sessionStorage.getItem('crudState')!;
     this.blogService.setNewBlogForm();
     const sessionStorageBlogData = sessionStorage.getItem('blogData');
     if (sessionStorageBlogData !== null) {
@@ -36,6 +37,12 @@ export class NewBlog implements OnInit, OnDestroy {
   }
   goBack() {
     this.location.back();
+  }
+  getBlogCrudState() {
+    return this.blogService.crudState;
+  }
+  async swapOrder(index1: number, index2: number) {
+    await this.blogService.swapParagraphOrder(index1, index2);
   }
   getNewBlogForm() {
     return this.blogService.getNewBlogForm();

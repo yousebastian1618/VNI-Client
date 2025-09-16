@@ -19,7 +19,7 @@ import {Router} from '@angular/router';
 export class Buttons {
   @Input() buttons: any[] = [];
   @Input() element: any = {};
-  @Output() callBack = new EventEmitter<{ file: File }>();
+  @Output() callBack = new EventEmitter<any>();
 
   constructor(
     private crudService: CrudService,
@@ -32,21 +32,43 @@ export class Buttons {
     return this.buttons;
   }
   async handleClick(event: any, button: any) {
-    if (button.name === 'new|image') {
+    let targetButton = JSON.parse(JSON.stringify(button));
+    if (targetButton.name === 'new|image') {
       (document.getElementById("file-upload-input") as HTMLInputElement)!.click();
+      event.stopPropagation();
       return;
     }
-    if (button.name === 'new|blog') {
+    if (targetButton.name === 'new|blog') {
+      this.blogService.crudState = 'create';
+      sessionStorage.setItem('crudState', this.blogService.crudState);
       await this.router.navigate(['new-blog'])
+      event.stopPropagation();
       return;
     }
-    if (button.name.includes('new|blog-image')) {
+    if (targetButton.name.includes('new|blog-image')) {
+      this.blogService.toggleReviewingBlog(false);
       this.blogService.currentParagraphIndex = this.buttons[0].name.split('|')[2];
       (document.getElementById("file-upload-input") as HTMLInputElement)!.click();
+      event.stopPropagation();
       return;
     }
-    await this.crudService.handleCrud(button, this.element);
+    if (targetButton.name.includes('edit|blog')) {
+      this.blogService.toggleReviewingBlog(false);
+      this.blogService.crudState = 'update';
+      sessionStorage.setItem('crudState', this.blogService.crudState);
+      sessionStorage.setItem('blogUid', this.element.id);
+      let blogJson = await this.blogService.blogGqlToJson(this.element);
+      sessionStorage.setItem('blogData', JSON.stringify(blogJson));
+      await this.router.navigate(['new-blog'])
+      event.stopPropagation();
+      return;
+    }
+    if (targetButton.name === 'delete|blog') {
+      targetButton.name += `|${this.element.id}`;
+      targetButton.func += `|${this.element.id}`
+    }
     event.stopPropagation();
+    await this.crudService.handleCrud(targetButton, this.element);
   }
   toggleButtonClass(button: any) {
     let [crud, what] = button.name.split('|');

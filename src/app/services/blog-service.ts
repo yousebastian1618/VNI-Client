@@ -4,10 +4,11 @@ import {FileService} from './file-service';
 import {BehaviorSubject, firstValueFrom, last, lastValueFrom, Observable, tap} from 'rxjs';
 import {SUBMIT_BLOG_BUTTONS} from '../objects/buttons';
 import {GqlService} from './gql-service';
-import {BLOGS_GQL, CREATE_BLOG, DELETE_BLOGS, REORDER_BLOGS} from '../objects/gql';
+import {BLOGS_GQL, CREATE_BLOG, DELETE_BLOG, DELETE_BLOGS, REORDER_BLOGS, UPDATE_BLOG} from '../objects/gql';
 import {Router} from '@angular/router';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
 import {HomeService} from './home-service';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,7 @@ export class BlogService {
   currentParagraphIndex: number = 0;
   previewing: boolean = false;
   previewingData: any = {};
+  crudState: string = '';
   constructor(
     private fileService: FileService,
     private gqlService: GqlService,
@@ -49,7 +51,7 @@ export class BlogService {
       () => {}
     )
   }
-  async addBlog(copiedPreviewingData: any) {
+  async crudBlog(copiedPreviewingData: any) {
     await this.uploadBlogImagesToCloud(copiedPreviewingData.paragraphs);
     await this.submitBlogToDatabase(copiedPreviewingData);
   }
@@ -90,16 +92,25 @@ export class BlogService {
     return new Promise<void>((resolve, reject) => {
       let gqlInput = copiedPreviewingData;
       this.gqlService.gqlMutation(
-        CREATE_BLOG,
+        this.crudState === 'create' ? CREATE_BLOG : UPDATE_BLOG,
         true,
         { gqlInput },
-        "Blog Created.",
+        this.crudState === 'create' ? "Blog Created." : 'Blog Updated',
         async (response: any) => {
-          const current = this.blogsSubject.getValue();
-          this.blogsSubject.next([...current, response.createBlog]);
-          SUBMIT_BLOG_BUTTONS.find(b => b.name === 'submit|new-blog').loading = false;
-          await this.router.navigate(['blogs']);  // navigate after DB write succeeds
-          resolve();
+          if (this.crudState === 'create') {
+            const current = this.blogsSubject.getValue();
+            this.blogsSubject.next([...current, response.createBlog]);
+            SUBMIT_BLOG_BUTTONS.find(b => b.name === 'submit|new-blog').loading = false;
+            await this.router.navigate(['blogs']);  // navigate after DB write succeeds
+            resolve();
+          } else if (this.crudState === 'update') {
+            const current = [...this.blogsSubject.getValue()];
+            let targetBlog = this.blogsSubject.getValue().find((b: any) => b.id === copiedPreviewingData.id);
+            let index = current.indexOf(targetBlog);
+            current[index] = response.updateBlog;
+            this.blogsSubject.next([...current]);
+            await this.router.navigate(['blogs']);  // navigate after DB write succeeds
+          }
         },
         (err: any) => {
           SUBMIT_BLOG_BUTTONS.find(b => b.name === 'submit|new-blog').loading = false;
@@ -129,23 +140,67 @@ export class BlogService {
     )
   }
 
+  deleteBlogSingle(uid: string) {
+    let original = JSON.parse(JSON.stringify(this.blogsSubject.getValue()));
+    return this.gqlService.gqlMutation(
+      DELETE_BLOG,
+      true,
+      { uid },
+      "Deleted blog.",
+      () => {
+        let current = JSON.parse(JSON.stringify(this.blogsSubject.getValue()));
+        current = current.filter((blog: any) => blog.id !== uid);
+        current = this.reorderBlogsLocal(current);
+        this.blogsSubject.next([...current]);
+      },
+      () => {},
+      false,
+      true,
+      () => {
+        this.blogsSubject.next([...original]);
+      }
+    )
+  }
+
   deleteBlogsMultiple() {
+    let original = JSON.parse(JSON.stringify(this.blogsSubject.getValue()));
     let uids = this.selectedBlogs.map((b: any) => b.id);
     return this.gqlService.gqlMutation(
       DELETE_BLOGS,
       true,
       { uids },
       "Deleted",
-      (response: any) => {
+      () => {
+        let current = JSON.parse(JSON.stringify(this.blogsSubject.getValue()));
+        current = current.filter((blog: any) => uids.indexOf(blog.id) === -1);
+        current = this.reorderBlogsLocal(current);
+        this.blogsSubject.next([...current]);
         this.toggleSelectingBlogs();
-        setTimeout(() => {
-          this.blogsSubject.next([...response.deleteBlogs]);
-        })
       },
       () => {},
-      true
-
+      false,
+      true,
+      () => {
+        this.blogsSubject.next([...original]);
+      }
     )
+  }
+  async swapParagraphOrder(index1: number, index2: number) {
+    let temp = this.getNewBlogParagraphsForm()[index1];
+    this.getNewBlogParagraphsForm()[index1] = this.getNewBlogParagraphsForm()[index2];
+    this.getNewBlogParagraphsForm()[index2] = temp;
+    let tempFile1 = await this.fileService.getFile(`blog_image_${index1}`);
+    let tempFile2 = await this.fileService.getFile(`blog_image_${index2}`);
+    this.fileService.saveFile(`blog_image_${index2}`, tempFile1);
+    this.fileService.saveFile(`blog_image_${index1}`, tempFile2)
+    await this.saveToSession();
+  }
+  reorderBlogsLocal(blogs: any[]) {
+    for (let i=0; i<blogs.length; i++) {
+      blogs[i].index = i;
+    }
+    return blogs;
+
   }
   getBlogImageSrc(imageUUID: any) {
     return `/api/blogs/image/${imageUUID}`
@@ -169,16 +224,50 @@ export class BlogService {
   setNewBlogForm() {
     this.newBlogForm = JSON.parse(JSON.stringify(NEW_BLOG_FORM));
   }
-  fillNewBlogForm(storageBlogDataJson: any) {
-    for (let key of Object.keys(storageBlogDataJson)) {
-      if (typeof(storageBlogDataJson[key]) === 'object') {
-        for (let value of storageBlogDataJson[key]) {
+  fillNewBlogForm(json: any) {
+    for (let key of Object.keys(json)) {
+      if (typeof(json[key]) === 'object') {
+        for (let value of json[key]) {
           this.addNewBlogParagraphs(value);
         }
       } else {
-        this.newBlogForm.find((element: any) => element.gqlKey === key).value = storageBlogDataJson[key];
+        this.newBlogForm.find((element: any) => element.gqlKey === key).value = json[key];
       }
     }
+  }
+  async getFileFromUrl(url: string, filename: string) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        return;
+      }
+      const blob = await response.blob();
+      return new File([blob], filename, { type: blob.type, lastModified: new Date().getTime() });
+    } catch (error) {
+      return null;
+    }
+  }
+  async blogGqlToJson(blog: any) {
+    let blogJson: any = {};
+    blogJson.title = blog.title;
+    blogJson.subtitle = blog.subtitle;
+    blogJson.author = blog.author;
+    blogJson.paragraphs = [];
+    for (let i=0; i<blog.paragraphs.length; i++) {
+      let paragraph = blog.paragraphs[i];
+      if (paragraph.image !== null) {
+        let file = await this.getFileFromUrl(environment.client + this.getBlogImageSrc(paragraph.image), 's');
+        if (file) {
+          this.fileService.saveFile(`blog_image_${i}`, file);
+        }
+      }
+      blogJson.paragraphs.push({
+        title: paragraph.title,
+        text: paragraph.text,
+        image: paragraph.image
+      });
+    }
+    return blogJson;
   }
   getNewBlogForm() {
     return this.newBlogForm;

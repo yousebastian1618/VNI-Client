@@ -3,6 +3,7 @@ import {TextInput} from './text-input/text-input';
 import {TEXT_INPUT_OPTIONS} from '../../objects/forms';
 import {Router} from '@angular/router';
 import {BlogService} from '../../services/blog-service';
+import {CrudService} from '../../services/crud-service';
 
 @Component({
   selector: 'app-form',
@@ -17,7 +18,8 @@ export class Form {
   @Input() buttons: string[] = [];
   constructor(
     private blogService: BlogService,
-    private router: Router
+    private router: Router,
+    private crudService: CrudService
   ) {
   }
   getTextInputOptions() {
@@ -26,6 +28,13 @@ export class Form {
   async handleChange() {
     if (this.router.url === '/new-blog') {
       await this.blogService.saveToSession();
+    }
+  }
+  async handleKeyDown(event: KeyboardEvent) {
+    if (this.router.url === '/login') {
+      if (event.key === 'Enter') {
+        await this.crudService.handleCrud('login', null);
+      }
     }
   }
 }

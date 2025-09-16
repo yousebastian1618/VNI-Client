@@ -6,7 +6,16 @@
     margin: auto;
   }
   .paragraph-sections-container {
+    .swap-icon-container {
+      margin: 2rem;
+      display: flex;
+      .swap-icon {
+        cursor: pointer;
+        margin: auto;
+        font-size: 2rem;
 
+      }
+    }
   }
   .new-paragraph-button {
     margin: auto;

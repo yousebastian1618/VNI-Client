@@ -123,19 +123,34 @@ export class ProductServices {
   }
   deleteImages() {
     let uids = this.selectedImages.map((item: any) => item.id);
+    let original = JSON.parse(JSON.stringify(this.productsSubject.getValue()));
     return this.gqlService.gqlMutation(
       DELETE_PRODUCTS_GQL,
       true,
       { uids },
       'Deleted.',
-      (response: any) => {
-        this.productsSubject.next([...response.deleteProducts]);
-        this.modalService.main = this.productsSubject.getValue().map((p: any) => ({ ...p }));
+      () => {
+        let current = JSON.parse(JSON.stringify(this.productsSubject.getValue()));
+        current = current.filter((p: any) => uids.indexOf(p.id) === -1);
+        current = this.reorderProductsLocal(current);
+        this.productsSubject.next([...current]);
+        this.modalService.main = current.map((p: any) => ({ ...p }));
         this.toggleSelectingImage(false);
       },
       () => {},
-      true
+      false,
+      true,
+      () => {
+        this.productsSubject.next([...original]);
+        this.modalService.main = [...original];
+      }
     )
+  }
+  reorderProductsLocal(products: any[]) {
+    for (let i=0; i<products.length; i++) {
+      products[i].index = i;
+    }
+    return products;
   }
   getSelectedImages() {
     return this.selectedImages;

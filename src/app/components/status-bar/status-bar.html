@@ -1,4 +1,10 @@
 <div class="status-bar-container">
-  <app-icon class="status-type" [icon]="getStatusType()" />
-  <div>{{ getStatusMessage() }}</div>
+  <div class="status-message">
+    <app-icon class="status-type" [icon]="getStatusType()" />
+    <div>{{ getStatusMessage() }}</div>
+  </div>
+  <div class="undo-container" (click)="undo()" [style]="getShowUndo() ? '' : 'display: none;'">
+    <span>Undo</span>
+    <app-icon [icon]="'rotate_right'" class="undo-icon"/>
+  </div>
 </div>
