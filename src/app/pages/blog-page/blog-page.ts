@@ -25,6 +25,6 @@ export class BlogPage {
     return this.blogs[0];
   }
   getSubBlogs() {
-    return this.blogs.slice(1);
+    return this.blogs.slice(1, 4);
   }
 }

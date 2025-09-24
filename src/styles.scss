@@ -39,7 +39,7 @@ body {
 .title-style {
   color: var(--brand-kit-color-1);
   font-size: 4ex;
-  font-weight: 400;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,10 +49,10 @@ body {
 .title-style-left {
   color: var(--brand-kit-color-1);
   font-size: 4ex;
-  font-weight: 400;
+  font-weight: 600;
   display: flex;
   justify-content: left;
-  margin-left: 5em;
+  margin-left: 4em;
   align-items: center;
   margin-bottom: 1.5em;
 }
@@ -60,12 +60,19 @@ body {
 .title-style-right {
   color: var(--brand-kit-color-1);
   font-size: 4ex;
-  font-weight: 400;
+  font-weight: 600;
   display: flex;
   justify-content: right;
-  margin-right: 5em;
-  align-items: center;
+  margin-right: 4em;
   margin-bottom: 1.5em;
+}
+
+.subtitle-style {
+  font-size: 2.5ex;
+  font-weight: 500;
+  color: grey;
+  text-align: justify;
+  align-items: center;
 }
 
 .setting-icon-container-left {
@@ -124,12 +131,15 @@ body {
   font-size: 3ex;
   font-weight: 400;
   margin-bottom: 1em;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 .text-input {
   height: 35px;
   border: 1px solid grey;
-  width: 600px;
+  //width: 600px;
+  width: 100%;
   border-radius: 5px;
   padding-left: 1ex;
   &:focus {
@@ -141,7 +151,8 @@ body {
 .text-area-input {
   height: 250px;
   border: 1px solid grey;
-  width: 600px;
+  //width: 600px;
+  width: 100%;
   border-radius: 5px;
   padding-left: 1ex;
   resize: none;

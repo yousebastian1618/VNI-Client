@@ -233,6 +233,8 @@ export const PRODUCT_SOLUTIONS = [
   },
 ]
 
+export const SAMPLE_PRODUCT_SUBTITLE = "Our partners’ products, from nutritional supplements to pharmaceuticals, showcase the diverse solutions we deliver through our OEM and ODM services"
+
 export const REGULATORY_COMPLIANCE = [
   {
     header: {
@@ -340,12 +342,12 @@ export const CONTACT_INFO: any[] = [
   {
     name: 'phone',
     icon: 'phone',
-    info: `(1) 123-123-1234`
+    info: `+1 778 325 3975`
   },
   {
     name: 'location',
     icon: 'address_pin',
-    info: `1123 Main St Your Town, 12345`
+    info: `Office 8455, 408 - 55 Water Street, Vancouver\nBritish Columbia V6B1A1 Canada`
   }
 ]
 
@@ -467,31 +469,7 @@ export const FOOTER_ELEMENTS = [
       {
         name: 'contact-us',
         label: 'Contact Us'
-      }
-    ]
-  },
-  {
-    header: {
-      name: 'custom-care',
-      label: 'CUSTOM CARE'
-    },
-    elements: [
-      {
-        name: 'shipping-policy',
-        label: 'Shipping Policy'
       },
-      {
-        name: 'refund-policy',
-        label: 'Refund Policy'
-      },
-      {
-        name: 'terms-of-service',
-        label: 'Terms Of Service'
-      },
-      {
-        name: 'privacy-policy',
-        label: 'Privacy Policy'
-      }
     ]
   },
   {
@@ -502,7 +480,7 @@ export const FOOTER_ELEMENTS = [
     elements: [
       {
         name: 'disclaimer-message',
-        label: 'At Vitali Nutrition Inc., we bring over 40 years of combined experience in the dietary supplement industry. Based in Vancouver, BC, Canada, we specialize in OEM and ODM manufacturing services that help our partners bring products to market with speed, precision, and reliability. We provide a comprehensive, end-to-end solution, including formulation, regulatory review, manufacturing, and supply of packaging materials - ensuring a seamless process from initial formulation design through finished, market-ready product.'
+        label: 'Vitali Nutrition Inc. provides OEM and ODM manufacturing services to support pharmaceutical partners. We do not sell or market medicines directly to consumers, nor do we provide medical advice. All clients are responsible for ensuring regulatory compliance and approvals in their respective markets. Information on this website is for general purposes only, and Vitali Nutrition Inc. assumes no liability for its use.'
       }
     ]
   }

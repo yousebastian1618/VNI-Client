@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       .logo {
-        width: 40%;
+        width: 50%;
         height: auto;
         margin: 2em;
       }
@@ -42,15 +42,9 @@
   }
   .bottom {
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
-    .social-media-icons {
-      display: flex;
-      .social-media-icon {
-        font-size: 2.5ex;
-        margin: 0 1em;
-      }
-    }
+    margin: 0 10%;
     .contact-info {
       display: flex;
       justify-content: center;
@@ -67,6 +61,13 @@
         }
         .info-detail {
         }
+      }
+    }
+    .social-media-icons {
+      display: flex;
+      .social-media-icon {
+        font-size: 2.5ex;
+        margin: 0 1em;
       }
     }
   }

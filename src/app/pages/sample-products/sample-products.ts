@@ -3,6 +3,7 @@ import {NgClass, NgOptimizedImage} from '@angular/common';
 import {Icon} from '../../components/icon/icon';
 import {CrudService} from '../../services/crud-service';
 import {ProductServices} from '../../services/product-services';
+import {SAMPLE_PRODUCT_SUBTITLE} from '../../objects/objects';
 
 @Component({
   selector: 'app-sample-products',
@@ -16,7 +17,7 @@ import {ProductServices} from '../../services/product-services';
 })
 export class SampleProducts {
   currentPage: number = 0;
-  numberOfProductsPerPage: number = 6;
+  numberOfProductsPerPage: number = 5;
   slideDirection: 'left' | 'right' | null = null;
   @Input() sampleProducts: any[] = [];
   constructor(
@@ -27,6 +28,9 @@ export class SampleProducts {
   getSampleProducts() {
     return this.sampleProducts;
   }
+  getSampleProductSubtitle() {
+    return SAMPLE_PRODUCT_SUBTITLE;
+  }
   getCurrentPageProducts() {
     return this.getSampleProducts().slice(
       this.currentPage === 0 ? this.currentPage : this.currentPage * this.numberOfProductsPerPage,
@@ -35,6 +39,11 @@ export class SampleProducts {
   async viewMore() {
     let button = 'view|images';
     await this.crudService.handleCrud(button, null);
+  }
+  getGhosts() {
+    const visible = this.getCurrentPageProducts().length;
+    const ghosts = Math.max(0, this.numberOfProductsPerPage - visible);
+    return Array.from({ length: ghosts }, (_, i) => i);
   }
   goTo(direction: number) {
     const next = this.currentPage + direction;

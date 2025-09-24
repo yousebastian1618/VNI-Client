@@ -3,12 +3,14 @@
   flex-direction: column;
   .regulatory-compliance {
     display: flex;
-    //margin-top: 3em;
     .regulatory-compliance-mini-table {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 5%;
+      margin: 0 1em;
       .regulatory-compliance-icon {
         width: 70px;
         height: 70px;

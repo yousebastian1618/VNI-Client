@@ -21,9 +21,6 @@ export class Footer {
   getContactInfo() {
     return CONTACT_INFO;
   }
-  getSocialMedias() {
-    return FOOTER_SOCIAL_MEDIAS;
-  }
   getFooterElements() {
     return FOOTER_ELEMENTS;
   }

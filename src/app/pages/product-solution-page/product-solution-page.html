@@ -5,9 +5,9 @@
   <div class="product-solutions">
     @for (item of getProductSolutions(); track item.header.name) {
       <div class="product-solution-mini-table" [style]="getWidth()">
-      <img class="product-solution-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
-      <app-mini-table [miniTableElement]="item"/>
-    </div>
+        <img class="product-solution-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
+        <app-mini-table [miniTableElement]="item"/>
+      </div>
     }
   </div>
 </span>

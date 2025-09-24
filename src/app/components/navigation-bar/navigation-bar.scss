@@ -1,24 +1,29 @@
 .navigation-bar-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: center;
   align-items: center;
-  padding: 3em 0;
+  padding: 3em;
   .logo-container {
+    display: flex;
+    justify-content: center;
     .logo {
       width: 40%;
       height: 100%;
     }
   }
   .navigation-bar-elements-container {
-    width: 50%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
+    gap: 2rem;
     .navigation-bar-element-container {
+      text-align: center;
       .navigation-bar-element {
-        margin: 0 1.5ex;
+        //margin: 0 1.5ex;
         transition-duration: 0.1s;
         font-weight: 600;
+        text-align: center;
         &:hover {
           color: var(--brand-kit-color-1);
           cursor: pointer;
