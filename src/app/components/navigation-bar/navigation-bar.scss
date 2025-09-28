@@ -1,31 +1,76 @@
 .navigation-bar-container {
+  position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   align-items: center;
-  padding: 3em;
+  z-index: 1;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  padding: 1em 0;
+
+  transition:
+    padding 500ms cubic-bezier(.22,.61,.36,1),
+    background-color 500ms cubic-bezier(.22,.61,.36,1),
+    backdrop-filter 500ms cubic-bezier(.22,.61,.36,1),
+    -webkit-backdrop-filter 500ms cubic-bezier(.22,.61,.36,1),
+    box-shadow 500ms cubic-bezier(.22,.61,.36,1),
+    transform 500ms cubic-bezier(.22,.61,.36,1);
+
+  will-change: padding, transform, background-color, backdrop-filter;
+
   .logo-container {
     display: flex;
     justify-content: center;
     .logo {
-      width: 40%;
-      height: 100%;
+      width: 20vh;
+      height: auto;
+      z-index: 2;
+      transition: width 500ms cubic-bezier(.22,.61,.36,1), transform 500ms ease;
+      transform-origin: center left;
+    }
+  }
+  &.compact {
+    padding: 0.2em 0;
+    //background-color: var(--brand-kit-color-off-white);
+    backdrop-filter: blur(1ex);
+    .logo-container {
+      .logo {
+        width: 10vh;
+      }
+    }
+    .navigation-bar-elements-container {
+      .navigation-bar-element-container {
+        .navigation-bar-element {
+          font-weight: bold;
+          text-align: center;
+          //color: var(--brand-kit-color-green);
+          color: var(--brand-kit-color-charcoal-grey);
+          font-size: 0.7rem;
+          &:hover {
+            //color: var(--brand-kit-color-charcoal-grey);
+            color: var(--brand-kit-color-green);
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   .navigation-bar-elements-container {
-    width: 100%;
     display: flex;
-    justify-content: right;
-    gap: 2rem;
+    gap: 3rem;
+    justify-content: space-between;
     .navigation-bar-element-container {
       text-align: center;
       .navigation-bar-element {
-        //margin: 0 1.5ex;
-        transition-duration: 0.1s;
-        font-weight: 600;
+        font-weight: bold;
         text-align: center;
+        color: var(--brand-kit-color-charcoal-grey);
+        font-size: 1.1rem;
         &:hover {
-          color: var(--brand-kit-color-1);
+          color: var(--brand-kit-color-green);
           cursor: pointer;
         }
       }

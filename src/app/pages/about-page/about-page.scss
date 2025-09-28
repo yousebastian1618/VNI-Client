@@ -1,15 +1,15 @@
 .about-container {
-  width: 90%;
   margin: auto;
+  width: 70%;
   .about-element-left {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .left {
-      width: 60%;
+      width: 47%;
     }
     .right {
-      width: 40%;
+      width: 47%;
       display: flex;
       justify-content: center;
     }
@@ -19,12 +19,12 @@
     justify-content: space-between;
     align-items: center;
     .left {
-      width: 40%;
+      width: 47%;
       display: flex;
       justify-content: center;
     }
     .right {
-      width: 60%;
+      width: 47%;
     }
   }
 }
@@ -37,14 +37,18 @@
 }
 
 img {
-  width: 60%;
+  width: 100%;
   height: 100%;
-  border-radius: 1ex;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: cover;
-  mask-image: radial-gradient(circle, var(--background-color-1) 90%, rgba(0,0,0,0) 100%);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: cover;
+  border-radius: 4ex;
+  //-webkit-mask-repeat: no-repeat;
+  //-webkit-mask-position: center;
+  //-webkit-mask-size: cover;
+  //mask-image: radial-gradient(circle, var(--background-color-1) 90%, rgba(0,0,0,0) 100%);
+  //mask-repeat: no-repeat;
+  //mask-position: center;
+  //mask-size: cover;
+}
+
+.gap {
+  margin: 6rem 0;
 }

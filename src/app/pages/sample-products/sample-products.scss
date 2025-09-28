@@ -19,24 +19,23 @@
   }
 }
 .sample-products-container {
+  .sample-products-title {
+    padding: 1rem 5%;
+  }
   .setting-icon-container-right {
   }
   .body-container {
     display: grid;
-    grid-template-columns: minmax(28ch, 34ch) 1fr;
     align-items: start;
     gap: 2rem;
     margin: 0 6em;
-    .container-subtitle {
-      width: auto;
-    }
     .products {
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      --cols: 5;
-      --card-w: 220px;
+      --cols: 6;
+      --card-w: 14rem;
       --gap: 12px;
       max-width: calc(var(--cols) * var(--card-w) + (var(--cols) - 1) * var(--gap));
       margin: 0 auto;

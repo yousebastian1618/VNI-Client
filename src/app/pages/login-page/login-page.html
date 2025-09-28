@@ -3,12 +3,12 @@
   <span>Home Page</span>
 </div>
 <div class="container">
-  <div class="login-container">
-    <img class="logo-image" ngSrc="assets/logo.png" alt="" width="1" height="1" priority draggable="false"/>
-    <div class="title-style">
+  <img class="logo-image" [ngSrc]="forgotPassword ? 'assets/forgot-password.png' : 'assets/login.png'" alt="" width="1" height="1" priority />
+  <div class="login-input-container">
+    <div class="title-style login-title">
       {{ forgotPassword ? 'FORGOT PASSWORD' : 'LOGIN' }}
     </div>
-    <div class="login-input-container">
+    <div class="form-container">
       <app-form [form]="getLoginForm()" />
     </div>
     <div class="forgot-password-container">

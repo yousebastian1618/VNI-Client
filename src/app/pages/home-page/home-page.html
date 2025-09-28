@@ -1,32 +1,38 @@
 <div class="home-container">
-  <div class="navigation-bar">
-    <app-navigation-bar />
-  </div>
-  <div class="introduction">
-    <app-introduction [images]="getIntroductionImages()" [intervalTime]="getIntroductionIntervalTime()" />
-  </div>
-  <div class="about" id="about">
-    <app-about-page />
-  </div>
-  <div class="product-solution" id="product-solution">
-    <app-product-solution-page />
-  </div>
-  <div class="sample-products" id="sample-products">
-    <app-sample-products [sampleProducts]="(getSampleProducts() | async) ?? []" />
-  </div>
-  <div class="regulatory-compliance" id="regulatory-compliance">
-    <app-regulatory-compliance-page />
-  </div>
-  <div class="blog" id="blogs">
-    <app-blog-page [blogs]="(getBlogs() | async) ?? []"/>
-  </div>
-  <div class="help" id="help">
-    <app-faq />
-  </div>
-  <div class="contact-us">
-    <app-contact-us />
-  </div>
-  <div class="footer">
-    <app-footer />
-  </div>
+  @if (isUnderMaintenance()) {
+    <div class="maintenance">
+      <app-maintenance-page />
+    </div>
+  } @else {
+    <div class="navigation-bar">
+      <app-navigation-bar />
+    </div>
+    <div class="introduction">
+      <app-introduction [images]="getIntroductionImages()" [intervalTime]="getIntroductionIntervalTime()" />
+    </div>
+    <div class="about" id="about">
+      <app-about-page />
+    </div>
+    <div class="product-solution" id="product-solution">
+      <app-product-solution-page />
+    </div>
+    <div class="sample-products" id="sample-products">
+      <app-sample-products [sampleProducts]="(getSampleProducts() | async) ?? []" />
+    </div>
+    <div class="regulatory-compliance" id="regulatory-compliance">
+      <app-regulatory-compliance-page />
+    </div>
+    <div class="blog" id="blogs">
+      <app-blog-page [blogs]="(getBlogs() | async) ?? []"/>
+    </div>
+    <div class="help" id="help">
+      <app-faq />
+    </div>
+    <div class="contact-us">
+      <app-contact-us />
+    </div>
+    <div class="footer">
+      <app-footer />
+    </div>
+  }
 </div>

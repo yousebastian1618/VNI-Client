@@ -39,13 +39,17 @@ export class CrudService {
     if (!container || !target) return;
     const containerRect = container.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
-    const headerOffset = 0; // adjust as needed
+    const headerOffset = 30; // adjust as needed
     const top = targetRect.top - containerRect.top + container.scrollTop - headerOffset;
     window.scrollTo({ top: top, behavior: 'smooth' });
   }
   async handleCrud(button: any, data: any) {
     let buttonName = typeof(button) === 'string' ? button : button.func;
     const [crud, what, id] = buttonName.split('|');
+    if (crud === 'close-modal') {
+      this.modalService.modalOff();
+      return;
+    }
     if (crud === 'undo') {
       this.gqlService.undo();
       return;

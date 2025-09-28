@@ -168,3 +168,20 @@ export const DELETE_BLOGS = gql`
     }
   }
 `
+
+export const MAINTENANCE = gql`
+  query Maintenance {
+    maintenance {
+      id
+      maintenance
+    }
+  }
+`
+
+export const TOGGLE_MAINTENANCE = gql`
+ mutation ToggleMaintenance($gqlInput: ToggleMaintenanceInput!) {
+   toggleMaintenance(gqlInput: $gqlInput) {
+     maintenance
+   }
+ }
+`

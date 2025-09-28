@@ -5,6 +5,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {MaintenanceService} from './maintenance-service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class UserService {
     private gqlService: GqlService,
     private cookieService: CookieService,
     private router: Router,
+    private maintenanceService: MaintenanceService
   ) {
   }
   login() {
@@ -33,6 +35,9 @@ export class UserService {
       { gqlInput },
       '',
       async (response) => {
+        if (this.maintenanceService.getIsUnderMaintenance()) {
+          this.maintenanceService.toggleMaintenance(false);
+        }
         this.userObject.next(response.login.user);
         this.accessToken = response.login.accessToken;
         this.refreshToken = response.login.refreshToken;

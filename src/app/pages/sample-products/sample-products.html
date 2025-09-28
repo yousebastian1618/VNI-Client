@@ -1,14 +1,11 @@
 <div class="sample-products-container">
-  <div class="title-style-left">
-    Our Customers' Products
+  <div class="title-style-left sample-products-title">
+    What Our Customers Have Launched With Us
   </div>
   <div class="setting-icon-container-right">
     <app-icon [icon]="'list'" class="list-icon-right" (click)="viewMore()" [tooltip]="'View More'" />
   </div>
   <div class="body-container">
-    <div class="subtitle-style container-subtitle">
-      {{ getSampleProductSubtitle() }}
-    </div>
     <div class="products">
       <div class="icon">
         <app-icon [icon]="'arrow_left'" (click)="goTo(-1)" [class]="currentPage === 0 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>

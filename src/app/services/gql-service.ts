@@ -49,6 +49,7 @@ export class GqlService {
         }
       },
       error: (err: any) => {
+        if (err.status === 503 && err.error.status == 'UNDER_MAINTENANCE') return;
         let errorMessage = typeof(err) === "object" ? err.message : err;
         errorCallback ? errorCallback(err) : ''
         this.homeService.stopLoading();
@@ -87,6 +88,7 @@ export class GqlService {
         this.homeService.stopLoading();
       },
       error: err => {
+        if (err.status === 503 && err.error.status == 'UNDER_MAINTENANCE') return;
         errorCallback ? errorCallback(err) : '';
         this.homeService.stopLoading();
         this.statusService.showStatus('error', `Something went wrong: ${err}}`);

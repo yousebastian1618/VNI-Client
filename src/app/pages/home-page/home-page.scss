@@ -2,32 +2,28 @@
   .introduction {
   }
   .about {
-    padding: 5em 0;
+    padding: 5rem 0;
   }
   .product-solution {
-    padding: 5em 0;
-    background-color: white;
+    padding: 3rem 0;
+    background-color: var(--background-color-green);
   }
   .sample-products {
-    padding: 5em 0;
+    padding: 0 0 5rem 0;
   }
   .regulatory-compliance {
-    padding: 5em 0;
-    background-color: white;
+    padding: 3rem 0;
+    background-color: var(--background-color-green);
   }
   .blog {
-    padding: 5em 0;
+    padding: 0 0 5rem 0;
   }
   .help {
-    padding: 5em 0;
-    background-color: white;
   }
   .contact-us {
-    padding: 5em 0;
+    //padding: 3em 0;
 
   }
   .footer {
-    padding: 2em 5em 1em 5em;
-    background-color: white;
   }
 }

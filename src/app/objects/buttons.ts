@@ -83,7 +83,7 @@ export const ADMIN_MANAGE_BLOGS_BUTTONS: any[] = [
     name: 'unselect|blogs',
     label: 'x',
     func: 'unselect|blogs',
-    style: 'color: var(--brand-kit-color-1); font-size: 1.2rem;',
+    style: 'color: var(--brand-kit-color-main); font-size: 1.2rem;',
     type: 'icon',
     tooltip: 'Unselect All',
     loading: false
@@ -218,3 +218,14 @@ export const SUBMIT_BLOG_BUTTONS: any[] = [
     loading: false
   }
 ]
+
+export const CLOSE_BUTTONS: any[] = [
+  {
+    name: "close-modal",
+    label: "X CLOSE",
+    func: "close-modal",
+    style: '',
+    type: 'button',
+    loading: false
+  }
+];

@@ -10,44 +10,102 @@
   }
 }
 .container {
-  width: 50%;
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
+  width: 70%;
+  margin: auto;
   align-items: center;
-  .login-container {
-    .logo-image {
-      display: flex;
-      margin: 10% auto;
-      width: 50%;
-      height: auto;
+  justify-content: space-evenly;
+  .logo-image {
+    width: 50%;
+    height: 25rem;
+  }
+  .login-input-container {
+    width: 50%;
+    height: 25rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    //align-items: center;
+    .login-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 0 auto;
     }
-    .login-input-container {
+    .form-container {
+      width: 70%;
+      margin: 0 auto;
+
     }
     .forgot-password-container {
+      width: 70%;
       font-size: 0.8rem;
-      width: 100%;
-      text-align: right;
-      margin-top: 3%;
+      display: flex;
+      justify-content: end;
+      margin: 1rex auto;
       .goback-to-login {
         #login-button {
           cursor: pointer;
-          &:hover {
-            color: var(--brand-kit-color-1);
-          }
         }
       }
       .forgot-password {
-        text-align: center;
         cursor: pointer;
-        &:hover {
-          color: var(--brand-kit-color-1);
-        }
       }
     }
     .login-buttons {
-      display: flex;
-      justify-content: center;
+      margin: 0 auto;
     }
   }
 }
+
+
+
+
+
+
+//.container {
+//  width: 50%;
+//  margin: auto;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  .login-container {
+//    .logo-image {
+//      display: flex;
+//      margin: 10% auto;
+//      width: 50%;
+//      height: auto;
+//    }
+//    .login-input-container {
+//    }
+//    .forgot-password-container {
+//      font-size: 0.8rem;
+//      width: 100%;
+//      text-align: right;
+//      margin-top: 3%;
+//      .goback-to-login {
+//        #login-button {
+//          cursor: pointer;
+//          &:hover {
+//            color: var(--brand-kit-color-main);
+//          }
+//        }
+//      }
+//      .forgot-password {
+//        text-align: center;
+//        cursor: pointer;
+//        &:hover {
+//          color: var(--brand-kit-color-main);
+//        }
+//      }
+//    }
+//    .login-buttons {
+//      display: flex;
+//      justify-content: center;
+//    }
+//  }
+//}

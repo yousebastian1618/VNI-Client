@@ -1,16 +1,59 @@
 .regulatory-compliance-container {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin: auto;
+  .regulatory-compliance-title {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    margin-left: auto;
+    padding: 1rem 2rem;
+    width: fit-content;
+    border-radius: 8em;
+    background-color: var(--brand-kit-color-off-white);
+    #title-1 {
+      font-size: 2.5ex;
+    }
+    #title-2 {
+      font-size: 5ex;
+    }
+    #text-idea {
+      color: var(--brand-kit-color-vibrant-orange);
+      font-weight: 1000;
+    }
+    #text-shelf {
+      color: var(--brand-kit-color-green);
+      font-weight: 1000;
+    }
+  }
   .regulatory-compliance {
     display: flex;
+    flex-direction: column;
+    background-color: var(--brand-kit-color-off-white);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    border-radius: 2rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    .regulatory-compliance-message {
+      margin: auto;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 70%;
+    }
+    .regulatory-compliance-tables {
+      display: flex;
+      justify-content: flex-start;
+    }
     .regulatory-compliance-mini-table {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      border-radius: 5%;
-      margin: 0 1em;
+      border-radius: 2rem;
+      margin: 2em 1em;
+      padding: 1em;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0, rgba(0, 0, 0, 0.06) 0 1px 2px 0;
       .regulatory-compliance-icon {
         width: 70px;
         height: 70px;

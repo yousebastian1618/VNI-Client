@@ -13,6 +13,8 @@ import {NavigationBar} from '../../components/navigation-bar/navigation-bar';
 import {BlogService} from '../../services/blog-service';
 import {ProductServices} from '../../services/product-services';
 import {AsyncPipe} from '@angular/common';
+import {MaintenancePage} from '../maintenance-page/maintenance-page';
+import {MaintenanceService} from '../../services/maintenance-service';
 
 @Component({
   selector: 'app-home-page',
@@ -27,7 +29,8 @@ import {AsyncPipe} from '@angular/common';
     BlogPage,
     SampleProducts,
     NavigationBar,
-    AsyncPipe
+    AsyncPipe,
+    MaintenancePage
   ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss'
@@ -36,8 +39,12 @@ export class HomePage {
   constructor(
     private blogService: BlogService,
     public productService: ProductServices,
+    private maintenanceService: MaintenanceService,
   ) {
 
+  }
+  isUnderMaintenance() {
+    return this.maintenanceService.getIsUnderMaintenance();
   }
   getIntroductionImages() {
     return HOME_PAGE_IMAGES;

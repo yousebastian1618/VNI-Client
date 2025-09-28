@@ -3,7 +3,11 @@
   flex-direction: column;
   justify-content: center;
   .blog-form-container {
-    margin: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 60%;
+    min-width: 40%;
   }
   .paragraph-sections-container {
     .swap-icon-container {

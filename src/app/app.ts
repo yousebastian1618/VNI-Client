@@ -10,10 +10,13 @@ import {StatusBar} from './components/status-bar/status-bar';
 import {StatusService} from './services/status-service';
 import {UserService} from './services/user-service';
 import {BlogService} from './services/blog-service';
+import {MaintenanceService} from './services/maintenance-service';
+import {Buttons} from './components/buttons/buttons';
+import {CLOSE_BUTTONS} from './objects/buttons';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Modal, Icon, Loading, StatusBar],
+  imports: [RouterOutlet, Modal, Icon, Loading, StatusBar, Buttons],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -26,10 +29,12 @@ export class App implements OnInit {
     private homeService: HomeService,
     private statusService: StatusService,
     private userService: UserService,
+    private maintenanceService: MaintenanceService
   ) {
 
   }
   ngOnInit() {
+    this.maintenanceService.getMaintenance();
     this.userService.retrieveUserByToken();
     this.blogService.fetchBlogs();
     this.productService.fetchProductsImages();
@@ -63,6 +68,9 @@ export class App implements OnInit {
       return 'background-color: var(--default-color-red);'
     }
     return '';
+  }
+  getCloseButtons() {
+    return CLOSE_BUTTONS;
   }
   closeStatus() {
     this.statusService.closeStatus()

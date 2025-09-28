@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener, signal} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {NAVIGATION_BAR_ELEMENTS} from '../../objects/objects';
 import {UserService} from '../../services/user-service';
@@ -13,6 +13,12 @@ import {CrudService} from '../../services/crud-service';
   styleUrl: './navigation-bar.scss'
 })
 export class NavigationBar {
+  compact = signal(false);
+  private threshold = 500; // px from top before shrinking
+  @HostListener('window:scroll')
+  onScroll() {
+    this.compact.set(window.scrollY > this.threshold);
+  }
   constructor(
     private userService: UserService,
     private crudService: CrudService,

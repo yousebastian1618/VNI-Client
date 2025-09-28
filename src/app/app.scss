@@ -27,26 +27,21 @@
     .modal {
       width: 90%;
       height: 90%;
-      background: #fff;
       border-radius: 20px;
 
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
+      background-color: var(--brand-kit-color-off-white);
       padding: 16px;
       min-width: 0;
       min-height: 0;
 
-      .close-icon-container {
-        position: absolute;
-        top: 12px;
-        right: 3%;
-        color: var(--brand-kit-color-1);
-        font-size: 3ex;
-        cursor: pointer;
-        z-index: 2;
-        border-radius: 30%;
-        background-color: var(--brand-kit-color-2);
+      .close-button-container {
+        display: flex;
+        & > * {
+          margin-left: auto;
+        }
       }
     }
   }

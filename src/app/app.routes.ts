@@ -25,5 +25,10 @@ export const routes: Routes = [
   {
     path: 'new-blog',
     component: NewBlog
+  },
+  {
+    path: "**",
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];

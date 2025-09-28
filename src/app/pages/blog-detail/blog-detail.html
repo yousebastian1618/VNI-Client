@@ -24,8 +24,8 @@
         @if (paragraph.image !== null) {
           <img class="blog-image" [ngSrc]="getImageSrc(paragraph.image)" alt="" width="200" height="200" priority />
         }
-        <div class="blog-paragraph-title title-style-left">{{ paragraph.title }}</div>
-        <p class="blog-paragraph" [innerText]="paragraph.text"></p>
+        <div class="blog-paragraph-title blog-title-style-left">{{ paragraph.title }}</div>
+        <p class="blog-paragraph" [innerHtml]="paragraph.text"></p>
       }
     </div>
   </div>

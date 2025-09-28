@@ -1,13 +1,17 @@
 <span class="regulatory-compliance-container">
-  <div class="title-style">
-    Regulatory Compliance
+  <div class="title-style regulatory-compliance-title">
+    <div id="title-1">Take Your Product</div>
+    <div id="title-2">From <span id="text-idea">SUBMISSION</span> to <span id="text-shelf">APPROVAL</span></div>
   </div>
   <div class="regulatory-compliance">
-    @for (item of getProductSolutions(); track item.header.name) {
-      <div class="regulatory-compliance-mini-table" [style]="getWidth()">
-      <img class="regulatory-compliance-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
-      <app-mini-table [miniTableElement]="item"/>
+    <div class="regulatory-compliance-message" [innerHtml]="getRegulatoryComplianceMessage()"></div>
+    <div class="regulatory-compliance-tables">
+      @for (item of getProductSolutions(); track item.header.name) {
+        <div class="regulatory-compliance-mini-table" [style]="getWidth()">
+          <img class="regulatory-compliance-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
+          <app-mini-table [miniTableElement]="item"/>
+        </div>
+      }
     </div>
-    }
   </div>
 </span>

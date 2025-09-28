@@ -91,41 +91,35 @@ export const HOW_CAN_WE_HELP_YOU = {
   image: 'assets/about/how_can_we_help.png'
 }
 
-
 export const NAVIGATION_BAR_ELEMENTS = [
   {
     name: 'about',
-    label: 'About',
-    parent: null
-  },
-  {
-    name: 'project',
-    label: 'Project',
+    label: 'ABOUT',
     parent: null
   },
   {
     name: 'product-solution',
-    label: 'Product Solution',
+    label: 'PRODUCT SOLUTION',
     parent: null
   },
   {
     name: 'regulatory-compliance',
-    label: 'Regulatory Compliance',
+    label: 'REGULATORY COMPLIANCE',
     parent: null
   },
   {
     name: 'blog',
-    label: 'Blog',
+    label: 'BLOGS',
     parent: null
   },
   {
     name: 'help',
-    label: 'Help',
+    label: 'HELP',
     parent: null
   },
   {
     name: 'logout',
-    label: 'Logout',
+    label: 'LOGOUT',
     parent: null
   },
 ]
@@ -154,7 +148,8 @@ export const PRODUCT_SOLUTIONS = [
         label: 'Herbals (ratio, standardized)'
       },
     ],
-    icon: 'assets/product-solutions/ingredients.png'
+    icon: 'assets/product-solutions/ingredients.png',
+    message: "We source and supply <b>active pharmaceutical ingredients (APIs)</b>, specialty compounds, essential vitamins, minerals, and standardized herbal extracts. Every ingredient is chosen for its <b>quality</b> and consistency, forming the base for safe, effective products."
   },
   {
     header: {
@@ -175,11 +170,12 @@ export const PRODUCT_SOLUTIONS = [
         label: 'Manufacturing feasibility'
       },
       {
-        name: 'organolaptic_development',
-        label: 'Organolaptic development'
+        name: 'organoleptic_development',
+        label: 'Organoleptic development'
       },
     ],
-    icon: 'assets/product-solutions/formulations.png'
+    icon: 'assets/product-solutions/formulations.png',
+    message: "Our team supports the full process of developing <b>market-ready formulas</b> — from identifying key ingredients and testing compound efficacy to assessing manufacturing feasibility and shaping organoleptic profiles (taste, texture, aroma). Each formula is designed to be <b>functional</b> and consumer-friendly."
   },
   {
     header: {
@@ -204,7 +200,8 @@ export const PRODUCT_SOLUTIONS = [
         label: 'Powder'
       },
     ],
-    icon: 'assets/product-solutions/manufacturing.png'
+    icon: 'assets/product-solutions/manufacturing.png',
+    message: "With <b> and strict standards</b>, we manufacture products in multiple formats — <b>capsules, tablets, softgels, and powders</b>. Our process ensures precision, scalability, and compliance at every stage."
   },
   {
     header: {
@@ -229,7 +226,8 @@ export const PRODUCT_SOLUTIONS = [
         label: 'Label Printing'
       },
     ],
-    icon: 'assets/product-solutions/packaging.png'
+    icon: 'assets/product-solutions/packaging.png',
+    message: "We provide <b>end-to-end packaging</b> solutions, including bottles, blisters, sachets, boxes, tubes, and professional label printing. Each option is designed for <b>durability</b> and shelf appeal, protecting product integrity while enhancing its presence."
   },
 ]
 
@@ -333,6 +331,10 @@ export const REGULATORY_COMPLIANCE = [
   }
 ]
 
+// export const REGULATORY_COMPLIANCE_MESSAGE = "We provide full support to ensure your products meet all regulatory requirements across different markets. From Canadian NPN licensing and U.S. FDA consulting to global cosmetic and veterinary compliance, our team guides you through label reviews, documentation, import licenses, and product submissions—making regulatory approval smooth and efficient.";
+
+export const REGULATORY_COMPLIANCE_MESSAGE = "<b>We streamline the compliance process</b> across Canada, the USA, and global markets. From <b>licensing</b> and label reviews to <b>lab testing</b> and product submissions, we help ensure your products meet all <b>regulatory standards</b> efficiently and effectively.";
+
 export const CONTACT_INFO: any[] = [
   {
     name: 'email',
@@ -412,34 +414,6 @@ export const FAQ_ELEMENTS: any[] = [
     question: 'How much will it cost to get my NPN through SynapseNHP?',
     answer: 'SynapseNHP’s fees for NPN application are tailored for each application. Due to the inherent formulation differences and regulatory navigation required to assess formulations and deliver to you the most optimal NPN licence, we find this tailored approach to be most suitable.<br/><br/>' +
       'Additionally, we are currently in a transitional phase with a proposed bill to implement cost recovery for Health Canada’s Natural Health Product, wherein Health Canada is looking to implement various registration fees for NPN applications, which can range from hundreds of dollars to thousands of dollars, increasing every year for 7 years. As part of SynapseNHP’s mission to help our customers provide quality Natural Health Products to the market to improve health outcomes for your customers, we are supporting various agencies who are at the forefront of fighting cost recovery in order to keep costs manageable for brand owners such as yourself.'
-  },
-]
-
-export const FOOTER_SOCIAL_MEDIAS: any[] = [
-  {
-    name: 'x',
-    icon: 'twitter',
-    style: 'cursor: pointer;'
-  },
-  {
-    name: 'meta',
-    icon: 'meta',
-    style: 'cursor: pointer;'
-  },
-  {
-    name: 'youtube',
-    icon: 'youtube',
-    style: 'cursor: pointer;'
-  },
-  {
-    name: 'linkedin',
-    icon: 'linkedIn',
-    style: 'cursor: pointer;'
-  },
-  {
-    name: 'instagram',
-    icon: 'instagram',
-    style: 'cursor: pointer;'
   },
 ]
 
@@ -861,329 +835,10 @@ export const ICON_MAP: any = {
   }
 }
 
-export const BLOGS = [
-  {
-    id: "abc",
-    index: 0,
-    mainImage: 'assets/test/main.jpg',
-    title: 'Tesla stock just jumped 20%!',
-    subtitle: 'Elon Musk showcase new Model 1 yesterday, surprise Tesla fans',
-    introduction: 'Over the last 20 years, the cost and complexity of electronics across the automotive industry has doubled.* Today a single vehicle typically requires over 200 connections—and the number of electrical connectors and types across new vehicles is only increasing.',
-    author: 'Elon Musk',
-    uploaded_at: new Date().toDateString(),
-    images: [
-      {
-        url: 'assets/test/main.jpg'
-      },
-      {
-        url: 'assets/test/sub-1.jpg'
-      },
-      {
-        url: 'assets/test/sub-3.jpg'
-      }
-    ],
-    paragraphs: [
-      {
-        title: "Should you start a blog?",
-        text: 'One of the misconceptions about starting a blog is that you need to be a great writer to be successful. Nothing could be further from the truth. People read blog sites to get a personal perspective on things, so most bloggers write in a very informal and conversational style.\n' +
-          '\n' +
-          'And because of the format, many successful bloggers will write about a variety of topics on the same blog.\n' +
-          '\n' +
-          'In addition, you don’t need to be an expert on any of the topics you write about to have a successful blog. For example, visitors to a cooking blog don’t want to read a textbook from a food scientist, they want to hear the experiences of someone who has actually cooked some real meals, mistakes and all.\n' +
-          '\n' +
-          'To be successful as a blogger there is really just one requirement: a passion for your topic.\n' +
-          '\n' +
-          'At its heart, blogging is about sharing your knowledge with the world. Writing about things that you are passionate about makes the process of starting a successful blog so much easier. As long as you are writing about things that you are genuinely interested in, your passion will shine through and keep your visitors interested.\n' +
-          '\n' +
-          'So why would you go to the trouble of blogging? There are a few reasons:\n' +
-          '\n' +
-          'Share your story. A blog allows you to have a voice and be heard. You can share your story with the entire world if you so choose. One of the most common ways blogs are used are as a diary where the blogger writes about their daily experiences so that friends, family, and others can all be a part of their lives.\n' +
-          'Make money from home. Blogging can be quite lucrative if done correctly. The top bloggers in the world obviously earn quite a bit, but even a part-time blogger can expect to make a nice profit if things are done correctly. The best part about it is that blogging is a form of passive income, since you can spend just a few hours a week writing a piece of content and then continue to profit from it long after the the writing is finished. I go into much more detail on how to blog for money later in this guide.\n' +
-          'Recognition for yourself or your business. No, you probably won’t have paparazzi following you around because of your latest post. But a successful blog makes your idea into a reality, and can gain you a ton of recognition in your respective field. Many bloggers are known as experts just because of their blogs, and some have even gotten book and movie deals based on their blogs.\n' +
-          'Find a community. Blogging at its heart is interactive. You write a post and people comment on it. This is a good way to connect with people who are interested in the same things as you are. Blogging allows you to teach these people based on your experience, and it gives you the opportunity to learn from your readers as well.\n' +
-          'Ready to begin? Click here to go to Step #1 of the guide'
-      },
-      {
-        title: "What is a blog anyway?",
-        text: 'In short, a blog is a type of website that focuses mainly on written content, also known as blog posts. In popular culture we most often hear about news blogs or celebrity blog sites, but as you’ll see in this guide, you can start a successful blog on just about any topic imaginable.\n' +
-          '\n' +
-          'Bloggers often write from a personal perspective that allows them to connect directly with their readers. In addition, most blogs also have a “comments” section where visitors can correspond with the blogger. Interacting with your visitors in the comments section helps to further the connection between the blogger and the reader.\n' +
-          '\n' +
-          'This direct connection to the reader is one of the main benefits of starting a blog. This connection allows you to interact and share ideas with other like-minded people. It also allows you to build trust with your readers. Having the trust and loyalty of your readers also opens up the door to making money from your blog, which is something I discuss later in this guide.\n' +
-          '\n' +
-          'The good news is that the internet is exploding with growth right now. More people than ever are online. This explosion in growth means more potential readers for your blog. In short, if you are thinking about starting a blog then there is no better time than right now.\n' +
-          '\n' +
-          'Let’s start your blog!'
-      },
-      {
-        title: "How to Choose a Blog Topic & Name",
-        text: 'If you don’t have an idea for a name already, the first step is choosing your blog topic.\n' +
-          '\n' +
-          'If you’re not sure what to blog about, there are a few ways to find a good blog topic:\n' +
-          '\n' +
-          'Life experiences. Everyone has lessons they have learned through life experience. Sharing this knowledge can be incredibly helpful to others in similar situations.\n' +
-          'For example, I recently helped a woman start her blog about being a fireman’s wife. She has a lot of experience and knowledge to share with others about this topic, and it has helped her connect with others in similar situations.\n' +
-          'Think about the things you have experienced in life. This could be related to your family (example: a blog about being a stay at home mom), work (a blog about experiences dealing with clients), or other life experiences (a blog about dealing with a troubling time such as a disease or divorce, or about a happy time such as preparing for a wedding or a birth of a child).\n' +
-          'A personal blog. A personal blog is a blog all about you. This will include a variety of topics, from things you do on a daily basis, to random thoughts and musings. This is a great way to share your thoughts with the world without having to stick to just one topic.\n' +
-          'Hobbies & passions. Hobbies or other interests you are passionate about are a great place to start. Cooking, travel, fashion, sports, and cars are all classic examples. But even blogs about hobbies with smaller audiences can be successful, as you are able to tap into a global audience with your blog.\n' +
-          'Once you have a topic it’s time to choose your blog name, also known as your domain name.\n' +
-          '\n' +
-          'A good blog name should be descriptive so that potential visitors can instantly tell what your blog is about just from the name.\n' +
-          '\n' +
-          'If you are blogging about one specific topic then you will definitely want to include that in some way when you pick a domain name. Try not to get hung-up on just one word though. For example, a cooking blog doesn’t necessarily have to have the word “cooking” in it. The words “food”, “recipes”, and “meals” would also let people know that your blog is about cooking.\n' +
-          '\n' +
-          'If you are planning to create a personal blog where you discuss a variety of topics then I recommend using your name, or some variation of it, since your blog is all about you. For example, I own the blog scottchow.com. You can also add your middle name or middle initial if you find your name is already taken. Or you could use a variation like “Scott Chow Blog” or “Blogging with Scott”.\n' +
-          '\n' +
-          'Can’t decide on a good name for your blog? Contact me and I will help you personally (for free)!\n' +
-          '\n' +
-          'Once you have some name ideas you will need to choose a domain extension.\n' +
-          '\n' +
-          'A .com domain extension is the most preferred, but .net, .org, .co, or other extension work just as well. It is also important to note that for the purposes of a blog domain you cannot have any spaces between words. So “Blogging with Scott” becomes bloggingwithscott.com'
-      },
-    ]
-  },
-  {
-    id: "bcd",
-    index: 1,
-    mainImage: 'assets/test/sub-1.jpg',
-    title: 'Tesla stock just jumped 20%!',
-    subtitle: 'Elon Musk showcase new Model 1 yesterday, surprise Tesla fans',
-    introduction: 'Over the last 20 years, the cost and complexity of electronics across the automotive industry has doubled.* Today a single vehicle typically requires over 200 connections—and the number of electrical connectors and types across new vehicles is only increasing.',
-    author: 'Elon Musk',
-    uploaded_at: new Date().toDateString(),
-    images: [
-      {
-        url: 'assets/about/how_can_we_help.png'
-      },
-      {
-        url: 'assets/about/our_mission.png'
-      },
-      {
-        url: 'assets/about/who_we_are.png'
-      }
-    ],
-    paragraphs: [
-      {
-        title: "Should you start a blog?",
-        text: 'One of the misconceptions about starting a blog is that you need to be a great writer to be successful. Nothing could be further from the truth. People read blog sites to get a personal perspective on things, so most bloggers write in a very informal and conversational style.\n' +
-          '\n' +
-          'And because of the format, many successful bloggers will write about a variety of topics on the same blog.\n' +
-          '\n' +
-          'In addition, you don’t need to be an expert on any of the topics you write about to have a successful blog. For example, visitors to a cooking blog don’t want to read a textbook from a food scientist, they want to hear the experiences of someone who has actually cooked some real meals, mistakes and all.\n' +
-          '\n' +
-          'To be successful as a blogger there is really just one requirement: a passion for your topic.\n' +
-          '\n' +
-          'At its heart, blogging is about sharing your knowledge with the world. Writing about things that you are passionate about makes the process of starting a successful blog so much easier. As long as you are writing about things that you are genuinely interested in, your passion will shine through and keep your visitors interested.\n' +
-          '\n' +
-          'So why would you go to the trouble of blogging? There are a few reasons:\n' +
-          '\n' +
-          'Share your story. A blog allows you to have a voice and be heard. You can share your story with the entire world if you so choose. One of the most common ways blogs are used are as a diary where the blogger writes about their daily experiences so that friends, family, and others can all be a part of their lives.\n' +
-          'Make money from home. Blogging can be quite lucrative if done correctly. The top bloggers in the world obviously earn quite a bit, but even a part-time blogger can expect to make a nice profit if things are done correctly. The best part about it is that blogging is a form of passive income, since you can spend just a few hours a week writing a piece of content and then continue to profit from it long after the the writing is finished. I go into much more detail on how to blog for money later in this guide.\n' +
-          'Recognition for yourself or your business. No, you probably won’t have paparazzi following you around because of your latest post. But a successful blog makes your idea into a reality, and can gain you a ton of recognition in your respective field. Many bloggers are known as experts just because of their blogs, and some have even gotten book and movie deals based on their blogs.\n' +
-          'Find a community. Blogging at its heart is interactive. You write a post and people comment on it. This is a good way to connect with people who are interested in the same things as you are. Blogging allows you to teach these people based on your experience, and it gives you the opportunity to learn from your readers as well.\n' +
-          'Ready to begin? Click here to go to Step #1 of the guide'
-      },
-      {
-        title: "What is a blog anyway?",
-        text: 'In short, a blog is a type of website that focuses mainly on written content, also known as blog posts. In popular culture we most often hear about news blogs or celebrity blog sites, but as you’ll see in this guide, you can start a successful blog on just about any topic imaginable.\n' +
-          '\n' +
-          'Bloggers often write from a personal perspective that allows them to connect directly with their readers. In addition, most blogs also have a “comments” section where visitors can correspond with the blogger. Interacting with your visitors in the comments section helps to further the connection between the blogger and the reader.\n' +
-          '\n' +
-          'This direct connection to the reader is one of the main benefits of starting a blog. This connection allows you to interact and share ideas with other like-minded people. It also allows you to build trust with your readers. Having the trust and loyalty of your readers also opens up the door to making money from your blog, which is something I discuss later in this guide.\n' +
-          '\n' +
-          'The good news is that the internet is exploding with growth right now. More people than ever are online. This explosion in growth means more potential readers for your blog. In short, if you are thinking about starting a blog then there is no better time than right now.\n' +
-          '\n' +
-          'Let’s start your blog!'
-      },
-      {
-        title: "How to Choose a Blog Topic & Name",
-        text: 'If you don’t have an idea for a name already, the first step is choosing your blog topic.\n' +
-          '\n' +
-          'If you’re not sure what to blog about, there are a few ways to find a good blog topic:\n' +
-          '\n' +
-          'Life experiences. Everyone has lessons they have learned through life experience. Sharing this knowledge can be incredibly helpful to others in similar situations.\n' +
-          'For example, I recently helped a woman start her blog about being a fireman’s wife. She has a lot of experience and knowledge to share with others about this topic, and it has helped her connect with others in similar situations.\n' +
-          'Think about the things you have experienced in life. This could be related to your family (example: a blog about being a stay at home mom), work (a blog about experiences dealing with clients), or other life experiences (a blog about dealing with a troubling time such as a disease or divorce, or about a happy time such as preparing for a wedding or a birth of a child).\n' +
-          'A personal blog. A personal blog is a blog all about you. This will include a variety of topics, from things you do on a daily basis, to random thoughts and musings. This is a great way to share your thoughts with the world without having to stick to just one topic.\n' +
-          'Hobbies & passions. Hobbies or other interests you are passionate about are a great place to start. Cooking, travel, fashion, sports, and cars are all classic examples. But even blogs about hobbies with smaller audiences can be successful, as you are able to tap into a global audience with your blog.\n' +
-          'Once you have a topic it’s time to choose your blog name, also known as your domain name.\n' +
-          '\n' +
-          'A good blog name should be descriptive so that potential visitors can instantly tell what your blog is about just from the name.\n' +
-          '\n' +
-          'If you are blogging about one specific topic then you will definitely want to include that in some way when you pick a domain name. Try not to get hung-up on just one word though. For example, a cooking blog doesn’t necessarily have to have the word “cooking” in it. The words “food”, “recipes”, and “meals” would also let people know that your blog is about cooking.\n' +
-          '\n' +
-          'If you are planning to create a personal blog where you discuss a variety of topics then I recommend using your name, or some variation of it, since your blog is all about you. For example, I own the blog scottchow.com. You can also add your middle name or middle initial if you find your name is already taken. Or you could use a variation like “Scott Chow Blog” or “Blogging with Scott”.\n' +
-          '\n' +
-          'Can’t decide on a good name for your blog? Contact me and I will help you personally (for free)!\n' +
-          '\n' +
-          'Once you have some name ideas you will need to choose a domain extension.\n' +
-          '\n' +
-          'A .com domain extension is the most preferred, but .net, .org, .co, or other extension work just as well. It is also important to note that for the purposes of a blog domain you cannot have any spaces between words. So “Blogging with Scott” becomes bloggingwithscott.com'
-      },
-    ]
-  },
-  {
-    id: "cde",
-    index: 2,
-    mainImage: 'assets/test/sub-2.png',
-    title: 'Tesla stock just jumped 20%!',
-    subtitle: 'Elon Musk showcase new Model 1 yesterday, surprise Tesla fans',
-    introduction: 'Over the last 20 years, the cost and complexity of electronics across the automotive industry has doubled.* Today a single vehicle typically requires over 200 connections—and the number of electrical connectors and types across new vehicles is only increasing.',
-    author: 'Elon Musk',
-    uploaded_at: new Date().toDateString(),
-    images: [
-      {
-        url: 'assets/home-page/home-page-1.png'
-      },
-      {
-        url: 'assets/home-page/home-page-2.png'
-      },
-      {
-        url: 'assets/home-page/home-page-3.png'
-      }
-    ],
-    paragraphs: [
-      {
-        title: "Should you start a blog?",
-        text: 'One of the misconceptions about starting a blog is that you need to be a great writer to be successful. Nothing could be further from the truth. People read blog sites to get a personal perspective on things, so most bloggers write in a very informal and conversational style.\n' +
-          '\n' +
-          'And because of the format, many successful bloggers will write about a variety of topics on the same blog.\n' +
-          '\n' +
-          'In addition, you don’t need to be an expert on any of the topics you write about to have a successful blog. For example, visitors to a cooking blog don’t want to read a textbook from a food scientist, they want to hear the experiences of someone who has actually cooked some real meals, mistakes and all.\n' +
-          '\n' +
-          'To be successful as a blogger there is really just one requirement: a passion for your topic.\n' +
-          '\n' +
-          'At its heart, blogging is about sharing your knowledge with the world. Writing about things that you are passionate about makes the process of starting a successful blog so much easier. As long as you are writing about things that you are genuinely interested in, your passion will shine through and keep your visitors interested.\n' +
-          '\n' +
-          'So why would you go to the trouble of blogging? There are a few reasons:\n' +
-          '\n' +
-          'Share your story. A blog allows you to have a voice and be heard. You can share your story with the entire world if you so choose. One of the most common ways blogs are used are as a diary where the blogger writes about their daily experiences so that friends, family, and others can all be a part of their lives.\n' +
-          'Make money from home. Blogging can be quite lucrative if done correctly. The top bloggers in the world obviously earn quite a bit, but even a part-time blogger can expect to make a nice profit if things are done correctly. The best part about it is that blogging is a form of passive income, since you can spend just a few hours a week writing a piece of content and then continue to profit from it long after the the writing is finished. I go into much more detail on how to blog for money later in this guide.\n' +
-          'Recognition for yourself or your business. No, you probably won’t have paparazzi following you around because of your latest post. But a successful blog makes your idea into a reality, and can gain you a ton of recognition in your respective field. Many bloggers are known as experts just because of their blogs, and some have even gotten book and movie deals based on their blogs.\n' +
-          'Find a community. Blogging at its heart is interactive. You write a post and people comment on it. This is a good way to connect with people who are interested in the same things as you are. Blogging allows you to teach these people based on your experience, and it gives you the opportunity to learn from your readers as well.\n' +
-          'Ready to begin? Click here to go to Step #1 of the guide'
-      },
-      {
-        title: "What is a blog anyway?",
-        text: 'In short, a blog is a type of website that focuses mainly on written content, also known as blog posts. In popular culture we most often hear about news blogs or celebrity blog sites, but as you’ll see in this guide, you can start a successful blog on just about any topic imaginable.\n' +
-          '\n' +
-          'Bloggers often write from a personal perspective that allows them to connect directly with their readers. In addition, most blogs also have a “comments” section where visitors can correspond with the blogger. Interacting with your visitors in the comments section helps to further the connection between the blogger and the reader.\n' +
-          '\n' +
-          'This direct connection to the reader is one of the main benefits of starting a blog. This connection allows you to interact and share ideas with other like-minded people. It also allows you to build trust with your readers. Having the trust and loyalty of your readers also opens up the door to making money from your blog, which is something I discuss later in this guide.\n' +
-          '\n' +
-          'The good news is that the internet is exploding with growth right now. More people than ever are online. This explosion in growth means more potential readers for your blog. In short, if you are thinking about starting a blog then there is no better time than right now.\n' +
-          '\n' +
-          'Let’s start your blog!'
-      },
-      {
-        title: "How to Choose a Blog Topic & Name",
-        text: 'If you don’t have an idea for a name already, the first step is choosing your blog topic.\n' +
-          '\n' +
-          'If you’re not sure what to blog about, there are a few ways to find a good blog topic:\n' +
-          '\n' +
-          'Life experiences. Everyone has lessons they have learned through life experience. Sharing this knowledge can be incredibly helpful to others in similar situations.\n' +
-          'For example, I recently helped a woman start her blog about being a fireman’s wife. She has a lot of experience and knowledge to share with others about this topic, and it has helped her connect with others in similar situations.\n' +
-          'Think about the things you have experienced in life. This could be related to your family (example: a blog about being a stay at home mom), work (a blog about experiences dealing with clients), or other life experiences (a blog about dealing with a troubling time such as a disease or divorce, or about a happy time such as preparing for a wedding or a birth of a child).\n' +
-          'A personal blog. A personal blog is a blog all about you. This will include a variety of topics, from things you do on a daily basis, to random thoughts and musings. This is a great way to share your thoughts with the world without having to stick to just one topic.\n' +
-          'Hobbies & passions. Hobbies or other interests you are passionate about are a great place to start. Cooking, travel, fashion, sports, and cars are all classic examples. But even blogs about hobbies with smaller audiences can be successful, as you are able to tap into a global audience with your blog.\n' +
-          'Once you have a topic it’s time to choose your blog name, also known as your domain name.\n' +
-          '\n' +
-          'A good blog name should be descriptive so that potential visitors can instantly tell what your blog is about just from the name.\n' +
-          '\n' +
-          'If you are blogging about one specific topic then you will definitely want to include that in some way when you pick a domain name. Try not to get hung-up on just one word though. For example, a cooking blog doesn’t necessarily have to have the word “cooking” in it. The words “food”, “recipes”, and “meals” would also let people know that your blog is about cooking.\n' +
-          '\n' +
-          'If you are planning to create a personal blog where you discuss a variety of topics then I recommend using your name, or some variation of it, since your blog is all about you. For example, I own the blog scottchow.com. You can also add your middle name or middle initial if you find your name is already taken. Or you could use a variation like “Scott Chow Blog” or “Blogging with Scott”.\n' +
-          '\n' +
-          'Can’t decide on a good name for your blog? Contact me and I will help you personally (for free)!\n' +
-          '\n' +
-          'Once you have some name ideas you will need to choose a domain extension.\n' +
-          '\n' +
-          'A .com domain extension is the most preferred, but .net, .org, .co, or other extension work just as well. It is also important to note that for the purposes of a blog domain you cannot have any spaces between words. So “Blogging with Scott” becomes bloggingwithscott.com'
-      },
-    ]
-  },
-  {
-    id: "def",
-    index: 3,
-    mainImage: 'assets/test/sub-3.jpg',
-    title: 'Tesla stock just jumped 20%!',
-    subtitle: 'Elon Musk showcase new Model 1 yesterday, surprise Tesla fans',
-    introduction: 'Over the last 20 years, the cost and complexity of electronics across the automotive industry has doubled.* Today a single vehicle typically requires over 200 connections—and the number of electrical connectors and types across new vehicles is only increasing.',
-    author: 'Elon Musk',
-    uploaded_at: new Date().toDateString(),
-    images: [
-      {
-        url: 'assets/home-page/home-page-4.png'
-      },
-      {
-        url: 'assets/test/sub-4.png'
-      },
-      {
-        url: 'assets/test/sub-3.jpg'
-      }
-    ],
-    paragraphs: [
-      {
-        title: "Should you start a blog?",
-        text: 'One of the misconceptions about starting a blog is that you need to be a great writer to be successful. Nothing could be further from the truth. People read blog sites to get a personal perspective on things, so most bloggers write in a very informal and conversational style.\n' +
-          '\n' +
-          'And because of the format, many successful bloggers will write about a variety of topics on the same blog.\n' +
-          '\n' +
-          'In addition, you don’t need to be an expert on any of the topics you write about to have a successful blog. For example, visitors to a cooking blog don’t want to read a textbook from a food scientist, they want to hear the experiences of someone who has actually cooked some real meals, mistakes and all.\n' +
-          '\n' +
-          'To be successful as a blogger there is really just one requirement: a passion for your topic.\n' +
-          '\n' +
-          'At its heart, blogging is about sharing your knowledge with the world. Writing about things that you are passionate about makes the process of starting a successful blog so much easier. As long as you are writing about things that you are genuinely interested in, your passion will shine through and keep your visitors interested.\n' +
-          '\n' +
-          'So why would you go to the trouble of blogging? There are a few reasons:\n' +
-          '\n' +
-          'Share your story. A blog allows you to have a voice and be heard. You can share your story with the entire world if you so choose. One of the most common ways blogs are used are as a diary where the blogger writes about their daily experiences so that friends, family, and others can all be a part of their lives.\n' +
-          'Make money from home. Blogging can be quite lucrative if done correctly. The top bloggers in the world obviously earn quite a bit, but even a part-time blogger can expect to make a nice profit if things are done correctly. The best part about it is that blogging is a form of passive income, since you can spend just a few hours a week writing a piece of content and then continue to profit from it long after the the writing is finished. I go into much more detail on how to blog for money later in this guide.\n' +
-          'Recognition for yourself or your business. No, you probably won’t have paparazzi following you around because of your latest post. But a successful blog makes your idea into a reality, and can gain you a ton of recognition in your respective field. Many bloggers are known as experts just because of their blogs, and some have even gotten book and movie deals based on their blogs.\n' +
-          'Find a community. Blogging at its heart is interactive. You write a post and people comment on it. This is a good way to connect with people who are interested in the same things as you are. Blogging allows you to teach these people based on your experience, and it gives you the opportunity to learn from your readers as well.\n' +
-          'Ready to begin? Click here to go to Step #1 of the guide'
-      },
-      {
-        title: "What is a blog anyway?",
-        text: 'In short, a blog is a type of website that focuses mainly on written content, also known as blog posts. In popular culture we most often hear about news blogs or celebrity blog sites, but as you’ll see in this guide, you can start a successful blog on just about any topic imaginable.\n' +
-          '\n' +
-          'Bloggers often write from a personal perspective that allows them to connect directly with their readers. In addition, most blogs also have a “comments” section where visitors can correspond with the blogger. Interacting with your visitors in the comments section helps to further the connection between the blogger and the reader.\n' +
-          '\n' +
-          'This direct connection to the reader is one of the main benefits of starting a blog. This connection allows you to interact and share ideas with other like-minded people. It also allows you to build trust with your readers. Having the trust and loyalty of your readers also opens up the door to making money from your blog, which is something I discuss later in this guide.\n' +
-          '\n' +
-          'The good news is that the internet is exploding with growth right now. More people than ever are online. This explosion in growth means more potential readers for your blog. In short, if you are thinking about starting a blog then there is no better time than right now.\n' +
-          '\n' +
-          'Let’s start your blog!'
-      },
-      {
-        title: "How to Choose a Blog Topic & Name",
-        text: 'If you don’t have an idea for a name already, the first step is choosing your blog topic.\n' +
-          '\n' +
-          'If you’re not sure what to blog about, there are a few ways to find a good blog topic:\n' +
-          '\n' +
-          'Life experiences. Everyone has lessons they have learned through life experience. Sharing this knowledge can be incredibly helpful to others in similar situations.\n' +
-          'For example, I recently helped a woman start her blog about being a fireman’s wife. She has a lot of experience and knowledge to share with others about this topic, and it has helped her connect with others in similar situations.\n' +
-          'Think about the things you have experienced in life. This could be related to your family (example: a blog about being a stay at home mom), work (a blog about experiences dealing with clients), or other life experiences (a blog about dealing with a troubling time such as a disease or divorce, or about a happy time such as preparing for a wedding or a birth of a child).\n' +
-          'A personal blog. A personal blog is a blog all about you. This will include a variety of topics, from things you do on a daily basis, to random thoughts and musings. This is a great way to share your thoughts with the world without having to stick to just one topic.\n' +
-          'Hobbies & passions. Hobbies or other interests you are passionate about are a great place to start. Cooking, travel, fashion, sports, and cars are all classic examples. But even blogs about hobbies with smaller audiences can be successful, as you are able to tap into a global audience with your blog.\n' +
-          'Once you have a topic it’s time to choose your blog name, also known as your domain name.\n' +
-          '\n' +
-          'A good blog name should be descriptive so that potential visitors can instantly tell what your blog is about just from the name.\n' +
-          '\n' +
-          'If you are blogging about one specific topic then you will definitely want to include that in some way when you pick a domain name. Try not to get hung-up on just one word though. For example, a cooking blog doesn’t necessarily have to have the word “cooking” in it. The words “food”, “recipes”, and “meals” would also let people know that your blog is about cooking.\n' +
-          '\n' +
-          'If you are planning to create a personal blog where you discuss a variety of topics then I recommend using your name, or some variation of it, since your blog is all about you. For example, I own the blog scottchow.com. You can also add your middle name or middle initial if you find your name is already taken. Or you could use a variation like “Scott Chow Blog” or “Blogging with Scott”.\n' +
-          '\n' +
-          'Can’t decide on a good name for your blog? Contact me and I will help you personally (for free)!\n' +
-          '\n' +
-          'Once you have some name ideas you will need to choose a domain extension.\n' +
-          '\n' +
-          'A .com domain extension is the most preferred, but .net, .org, .co, or other extension work just as well. It is also important to note that for the purposes of a blog domain you cannot have any spaces between words. So “Blogging with Scott” becomes bloggingwithscott.com'
-      },
-    ]
-  },
-]
-
 export const ACCEPTABLE_UPLOADING_FILE_TYPES: any[] = [
   'image/*'
 ]
+
+export const MAINTENANCE_TITLE = "Offline for maintenance";
+
+export const MAINTENANCE_SUBTITLE = "We are currently undergoing\nscheduled maintenance.\n\nPlease check back later.";

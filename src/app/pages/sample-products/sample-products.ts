@@ -17,7 +17,7 @@ import {SAMPLE_PRODUCT_SUBTITLE} from '../../objects/objects';
 })
 export class SampleProducts {
   currentPage: number = 0;
-  numberOfProductsPerPage: number = 5;
+  numberOfProductsPerPage: number = 6;
   slideDirection: 'left' | 'right' | null = null;
   @Input() sampleProducts: any[] = [];
   constructor(
@@ -27,9 +27,6 @@ export class SampleProducts {
   }
   getSampleProducts() {
     return this.sampleProducts;
-  }
-  getSampleProductSubtitle() {
-    return SAMPLE_PRODUCT_SUBTITLE;
   }
   getCurrentPageProducts() {
     return this.getSampleProducts().slice(

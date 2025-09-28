@@ -12,8 +12,8 @@
   @if (getIsModalOn()) {
     <div class="modal-container" [class]="isLoading() ? 'disable-dim' : ''">
       <div class="modal">
-        <div class="close-icon-container">
-          <app-icon class="close-icon" [icon]="'x'" (click)="closeModal()"/>
+        <div class="close-button-container">
+          <app-buttons [buttons]="getCloseButtons()" />
         </div>
         <app-modal />
       </div>

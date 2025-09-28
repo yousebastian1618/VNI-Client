@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {CONTACT_INFO, FOOTER_ELEMENTS, FOOTER_SOCIAL_MEDIAS} from '../../objects/objects';
+import {CONTACT_INFO, FOOTER_ELEMENTS} from '../../objects/objects';
 import {Icon} from '../icon/icon';
 import {CrudService} from '../../services/crud-service';
 

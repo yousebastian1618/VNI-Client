@@ -20,7 +20,7 @@ export class Introduction {
   private timerId: any = null;
 
   containerTransform = computed(() => `translateX(-${this.index() * 100}%)`);
-  transitionStyle  = computed(() => (this.animate() ? 'transform 500ms ease' : 'none'));
+  transitionStyle  = computed(() => (this.animate() ? 'transform 1500ms ease' : 'none'));
 
   ngOnInit() { this.startAuto(); }
   ngOnDestroy() { this.stopAuto(); }
