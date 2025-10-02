@@ -2,7 +2,6 @@ import {Component, OnInit, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ModalService } from './services/modal-service';
 import {Modal} from './components/modal/modal';
-import {Icon} from './components/icon/icon';
 import {ProductServices} from './services/product-services';
 import {Loading} from './components/loading/loading';
 import {HomeService} from './services/home-service';
@@ -16,7 +15,7 @@ import {CLOSE_BUTTONS} from './objects/buttons';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Modal, Icon, Loading, StatusBar, Buttons],
+  imports: [RouterOutlet, Modal, Loading, StatusBar, Buttons],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

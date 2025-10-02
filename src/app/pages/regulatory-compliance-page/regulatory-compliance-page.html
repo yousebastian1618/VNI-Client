@@ -4,10 +4,18 @@
     <div id="title-2">From <span id="text-idea">SUBMISSION</span> to <span id="text-shelf">APPROVAL</span></div>
   </div>
   <div class="regulatory-compliance">
-    <div class="regulatory-compliance-message" [innerHtml]="getRegulatoryComplianceMessage()"></div>
+    <div class="regulatory-compliance-message"
+         [innerHtml]="getRegulatoryComplianceMessage()"
+         [appInViewport]="'fade-in-from-top-animation-class'"
+         preClass="pre-animate"
+    >
+    </div>
     <div class="regulatory-compliance-tables">
-      @for (item of getProductSolutions(); track item.header.name) {
-        <div class="regulatory-compliance-mini-table" [style]="getWidth()">
+      @for (item of getProductSolutions(); track item.header.name; let i = $index) {
+        <div class="regulatory-compliance-mini-table" [style]="getWidth()"
+           [appInViewport]="i % 2 === 0 ? i == 0 ? 'fade-in-from-left-animation-class' : 'fade-in-from-right-animation-class' : 'fade-in-from-bottom-animation-class'"
+           preClass="pre-animate"
+        >
           <img class="regulatory-compliance-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
           <app-mini-table [miniTableElement]="item"/>
         </div>

@@ -50,9 +50,6 @@ export class NewBlog implements OnInit, OnDestroy {
   getNewBlogParagraphForm() {
     return this.blogService.getNewBlogParagraphsForm()
   }
-  addNewParagraph() {
-    this.blogService.addNewBlogParagraphs();
-  }
   getAddNewParagraphButton() {
     return ADD_NEW_PARAGRAPH_BUTTONS;
   }

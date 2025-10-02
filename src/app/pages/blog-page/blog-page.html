@@ -2,9 +2,11 @@
   <div class="title-style-right blog-title">
     Blogs
   </div>
-  <div class="setting-icon-container-left">
-<!--    <app-icon [icon]="'list'" class="list-icon-left" [tooltip]="'View More'" [routerLink]="'blogs'"/>-->
-  </div>
+  @if (isAdmin()) {
+    <div class="setting-icon-container-left">
+      <app-icon [icon]="'list'" class="list-icon-left" [tooltip]="'Manage'" [routerLink]="'blogs'"/>
+    </div>
+  }
   <div class="blog">
     <div class="main-blog">
       <app-main-blog [blog]="getMainBlog()" />

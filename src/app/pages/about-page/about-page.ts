@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {HOW_CAN_WE_HELP_YOU, OUR_MISSION, WHO_WE_ARE} from '../../objects/objects';
 import {NgOptimizedImage} from '@angular/common';
+import {InViewportDirective} from '../../in-viewport.directive';
 
 @Component({
   selector: 'app-about-page',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    InViewportDirective
   ],
   templateUrl: './about-page.html',
   styleUrl: './about-page.scss'

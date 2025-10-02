@@ -4,6 +4,7 @@ import {Icon} from '../../components/icon/icon';
 import {CrudService} from '../../services/crud-service';
 import {ProductServices} from '../../services/product-services';
 import {SAMPLE_PRODUCT_SUBTITLE} from '../../objects/objects';
+import {UserService} from '../../services/user-service';
 
 @Component({
   selector: 'app-sample-products',
@@ -22,7 +23,8 @@ export class SampleProducts {
   @Input() sampleProducts: any[] = [];
   constructor(
     private crudService: CrudService,
-    private productService: ProductServices
+    private productService: ProductServices,
+    private userService: UserService
   ) {
   }
   getSampleProducts() {
@@ -53,5 +55,8 @@ export class SampleProducts {
   }
   getImageSrc(image: any) {
     return this.productService.getImageSrc(image);
+  }
+  isAdmin() {
+    return this.userService.isAdmin();
   }
 }

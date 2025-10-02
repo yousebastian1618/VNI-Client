@@ -4,15 +4,15 @@
     <span>Go Back</span>
   </div>
   <div class="new-blog-container">
-    <div class="title-style">
+    <div class="title-style-middle">
       {{ getBlogCrudState() === 'create' ? 'New Blog' : 'Update Blog' }}
     </div>
     <div class="blog-form-container">
       <app-form [form]="getNewBlogForm()" />
     </div>
-    <div class="horizontal-line"></div>
+    <div class="horizontal-line horizontal-line-height"></div>
     <div class="paragraph-sections-container">
-      <div class="title-style">
+      <div class="title-style-middle">
         Paragraphs
       </div>
       @for (paragraph of getNewBlogParagraphForm(); track paragraph; let i = $index) {
@@ -27,15 +27,15 @@
     <div class="new-paragraph-button">
       <app-buttons [buttons]="getAddNewParagraphButton()" />
     </div>
-    <div class="horizontal-line"></div>
+    <div class="horizontal-line horizontal-line-height"></div>
     <div class="preview-buttons">
       <app-buttons [buttons]="getPreviewButtons()" />
     </div>
   </div>
 } @else {
   <div class="preview-container">
-    <div class="preview-title title-style" [innerText]="getPreviewTitle()"></div>
-    <div class="preview-subtitle title-style" [innerText]="getPreviewSubtitle()">
+    <div class="preview-title title-style-middle" [innerText]="getPreviewTitle()"></div>
+    <div class="preview-subtitle title-style-middle" [innerText]="getPreviewSubtitle()">
     </div>
     <div class="preview-info">
       <div class="preview-info-author" [innerText]="getPreviewAuthor()"></div>
@@ -44,15 +44,15 @@
       <div class="preview-body-paragraphs">
         @for (paragraph of getPreviewParagraphs(); track paragraph) {
           <div class="preview-body-paragraph">
-            @if (paragraph.image) {<img class="paragraph-image" [src]="paragraph.image" alt="" width="50" height="50" />}
-            <div class="paragraph-title title-style-left" [innerText]="paragraph.title"></div>
+            @if (paragraph.image) {<img class="paragraph-image" [src]="paragraph.image" alt="" width="50" height="50" priority/>}
+            <div class="paragraph-title blog-title-style-left" [innerText]="paragraph.title"></div>
             <div class="paragraph" [innerText]="paragraph.text"></div>
           </div>
         }
       </div>
     </div>
   </div>
-  <div class="horizontal-line"></div>
+  <div class="horizontal-line horizontal-line-height"></div>
   <div class="submit-buttons">
     <app-buttons [buttons]="getSubmitBlogButtons()" />
   </div>

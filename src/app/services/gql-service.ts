@@ -13,6 +13,7 @@ import {CookieService} from 'ngx-cookie-service';
 export class GqlService {
   timeout: any = null;
   timeoutSeconds: number = 5500;
+  queued: any = null;
   undoAction: () => void = () => {};
   constructor(
     private apollo: Apollo,
@@ -25,6 +26,7 @@ export class GqlService {
     this.undoAction();
     clearTimeout(this.timeout);
     this.undoAction = () => {};
+    this.queued = null;
   }
 
   gqlQuery<TData = any>(query: DocumentNode, needAuth: boolean = true, message?: string, nextCallback?: (data: TData) => void, errorCallback?: (err: any) => void, loading: boolean = false): Subscription {
@@ -72,8 +74,12 @@ export class GqlService {
       context: { headers }
     };
     if (undo) {
+      if (this.queued) {
+        this.queued();
+      }
       this.undoAction = undoCallback!;
       this.gqlMutationTimer(opts, message, nextCallback, errorCallback, undoCallback);
+      this.queued = () => this.gqlMutationTimer(opts, message, nextCallback, errorCallback, undoCallback, true);
       return;
     }
     return this.apollo.mutate<any>(
@@ -95,7 +101,16 @@ export class GqlService {
       }
     })
   }
-  gqlMutationTimer(opts: any, message: string, nextCallback: any, errorCallback: any, undoCallback: any): any {
+  gqlMutationTimer(opts: any, message: string, nextCallback: any, errorCallback: any, undoCallback: any, skip: boolean = false): any {
+    if (skip) {
+      return this.apollo.mutate<any>(
+        opts,
+      ).subscribe({
+        next: () => {
+          clearTimeout(this.timeout);
+        }
+      });
+    }
     nextCallback ? nextCallback() : null;
     if (message && message !== '') {
       this.statusService.showStatus('success', message, true);
@@ -109,6 +124,7 @@ export class GqlService {
         next: () => {
           this.undoAction = () => {};
           clearTimeout(this.timeout);
+          this.queued = null;
         }
       });
     }, this.timeoutSeconds);

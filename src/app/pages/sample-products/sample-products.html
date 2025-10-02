@@ -2,9 +2,11 @@
   <div class="title-style-left sample-products-title">
     What Our Customers Have Launched With Us
   </div>
-  <div class="setting-icon-container-right">
-    <app-icon [icon]="'list'" class="list-icon-right" (click)="viewMore()" [tooltip]="'View More'" />
-  </div>
+  @if (isAdmin()) {
+    <div class="setting-icon-container-right">
+      <app-icon [icon]="'list'" class="list-icon-right" (click)="viewMore()" [tooltip]="'Manage'" />
+    </div>
+  }
   <div class="body-container">
     <div class="products">
       <div class="icon">

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {GqlService} from './gql-service';
 import {SEND_INQUIRY_GQL} from '../objects/gql';
-import {CONTACT_US_FORM} from '../objects/forms';
 import {CONTACT_US_BUTTONS} from '../objects/buttons';
 
 @Injectable({

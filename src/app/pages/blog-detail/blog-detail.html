@@ -19,7 +19,7 @@
   </div>
   <div class="blog-body">
     <div class="blog-paragraphs">
-      @for (paragraph of getBlogParagraphs(); track paragraph.text; let i = $index) {
+      @for (paragraph of getBlogParagraphs(); track paragraph.text) {
         {{ paragraph.url }}
         @if (paragraph.image !== null) {
           <img class="blog-image" [ngSrc]="getImageSrc(paragraph.image)" alt="" width="200" height="200" priority />

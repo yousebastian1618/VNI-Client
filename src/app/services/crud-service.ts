@@ -190,7 +190,6 @@ export class CrudService {
           let targetBlogId = sessionStorage.getItem('blogUid');
           copiedGetPreviewingData.id = targetBlogId;
           let targetBlog = this.blogService.blogsSubject.getValue().find((b: any) => b.id === targetBlogId);
-          console.log('targetBlog: ', targetBlog);
           for (let i = 0; i < copiedGetPreviewingData.paragraphs.length; i++) {
             let imageFile = await this.fileService.getFile(`blog_image_${i}`);
             copiedGetPreviewingData.paragraphs[i].index = i;
@@ -210,7 +209,6 @@ export class CrudService {
             }
           }
         }
-        console.log(copiedGetPreviewingData);
         await this.blogService.crudBlog(copiedGetPreviewingData);
         return;
       }
@@ -228,6 +226,12 @@ export class CrudService {
     }
     if (crud === 'preview') {
       if (what === 'blog') {
+        console.log(this.blogService.getNewBlogForm());
+        let imageFile = await this.fileService.getFile(`blog_image_${0}`);
+        if (imageFile === undefined) {
+          this.statusService.showStatus('error', 'You need to have an image for paragraph 1.');
+          return;
+        }
         if (this.errorService.checkError(this.blogService.getNewBlogForm())) {
           this.statusService.showStatus('error', this.errorService.errorMessage);
           return;

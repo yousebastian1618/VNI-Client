@@ -3,20 +3,26 @@
     <div id="title-1">Support You</div>
     <div id="title-2">From <span id="text-idea">IDEA</span> to <span id="text-shelf">SHELF</span></div>
   </div>
+
   <div class="product-solutions">
-      @for (item of getProductSolutions(); track item.header.name; let i = $index) {
-        <div class="product-solution">
-          <div class="product-solution-mini-table" [style]="getWidth()">
-            <img class="product-solution-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
-            <app-mini-table [miniTableElement]="item"/>
-          </div>
-          <div class="product-solution-message" [innerHtml]="item.message"></div>
+    @for (item of getProductSolutions(); track item.header.name; let i = $index) {
+      <div
+        class="product-solution"
+        [appInViewport]="i % 2 === 0 ? 'fade-in-from-right-animation-class' : 'fade-in-from-left-animation-class'"
+        preClass="pre-animate"
+        >
+      <div class="product-solution-mini-table" [style]="getWidth()">
+          <img class="product-solution-icon" [ngSrc]="item.icon" alt="" width="1" height="1" priority="priority" />
+          <app-mini-table [miniTableElement]="item" />
         </div>
-        @if (i < getProductSolutions().length - 1) {
-          <div class="down-arrow-container">
-            <img class="down-arrow" ngSrc="assets/down-arrow.png" alt="" width="1" height="1" priority />
-          </div>
-        }
+      <div class="product-solution-message" [innerHtml]="item.message"></div>
+      </div>
+
+      @if (i < getProductSolutions().length - 1) {
+        <div class="down-arrow-container">
+          <img class="down-arrow" ngSrc="assets/down-arrow.png" alt="" width="1" height="1" priority />
+        </div>
       }
-    </div>
+    }
+  </div>
 </span>

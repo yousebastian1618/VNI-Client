@@ -29,7 +29,4 @@ export class ModalService {
     this.buttons = [];
     this.isModalOn = false;
   }
-  showStatus() {
-
-  }
 }

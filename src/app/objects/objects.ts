@@ -1,72 +1,8 @@
-export const HOME_PAGE_MESSAGES: any = {
-  messages: [
-    {
-      background_image: "/assets/image_1.jpg",
-      title: "",
-      message: "Vitali Nutrition Inc. is a  life-focused company, introducing novel and quality products to the world through your brand."
-    },
-    {
-      background_image: "/assets/image_2.jpg",
-      title: "",
-      message: "Here at Vitali Nutrition Inc., we have the expertise and knowledge to take every step of the way with you, ensuring realization of all your product ideas.",
-    },
-    {
-      background_image: "/assets/image_3.jpg",
-      title: "",
-      message: "Our dedicated Research and Development Team and experienced Regulatory Department, complemented with our qualified American and Canadian GMP facilities ensure delivery of premium products to you, passing all regulatory hurdles.",
-    },
-    {
-      background_image: "/assets/image_4.jpg",
-      title: "",
-      message: "We believe in a holistic approach to service, just as a holistic approach is required to one’s well-being. That is why we are ready to take your inspiration and make it a reality, by assisting you ever step of the way, ensuring continual perfection and success."
-    },
-  ]
-}
-
 export const HOME_PAGE_IMAGES: any[] = [
   'assets/home-page/home-page-1.png',
   'assets/home-page/home-page-2.png',
   'assets/home-page/home-page-3.png',
   'assets/home-page/home-page-4.png',
-]
-
-export const ABOUT_MESSAGE: any[] = [
-  {
-    name: '',
-    label: '',
-    image: null,
-    message: `Synapse NHP was derived from the biological term "synapse", which is the gap between neurons key for signalling and communications. Synapse NHP specializes in bridging the industry's needs of high quality, innovative products, complying with government regulations. With our panel of experts with decades of combined experience, Synapse NHP provides comprehensive solutions to bring your product to fruition with fast turnaround times.`,
-  },
-  {
-    name: '',
-    label: '',
-    image: null,
-    message: `Since our inception in 2015, Synapse NHP has completed over 300 NPN submissions, brought 500 products to market in 15+ countries globally. Our clients are typically on retainer, and integrate Synapse NHP into their core efforts, providing on-going support resulting in cascading breakthroughs for the brands we are involved in.`,
-  },
-  {
-    name: 'mission',
-    label: 'Mission',
-    image: '/assets/sample_1.jpg',
-    message: `To provide a bridge between the cornerstones of operations, R&D and regulatory compliance for our clients, enabling ground-breaking innovation and continuous improvements in their operations on the foundation of quality and regulatory compliance.<br><br>"Be like water, my friend" - Bruce Lee`
-  },
-  {
-    name: 'vision',
-    label: 'Vision',
-    image: '/assets/sample_2.jpg',
-    message: `Bring value to humanity through improvements to the health and wellness industry. Let's reshape the industry through continuous and deliberate actions.`
-  },
-  {
-    name: 'values',
-    label: 'Values',
-    image: '/assets/sample_3.jpg',
-    message: `Quality is a habit. Above all, good products speak for themselves. Building trust and establishing your reputation requires continuous good work, with sound logic surrounding quality. This takes experience and knowledge to ensure you're well-informed when it comes to ensuring quality consistently. We recognize the challenge, and are in a continuous pursuit to ensure up-to-date knowledge and expertise bring value to you.`
-  },
-  {
-    name: 'speed_disruption',
-    label: 'Speed & Disruption',
-    image: '/assets/sample_4.jpg',
-    message: `Forward thinking and problem-solving are required to navigate any industry. In this ever-changing world, consumers are consistently looking for new value in the products we serve. Speed and disruption are two foundational metrics we have to abide by to ensure success for our clients.`
-  }
 ]
 
 export const WHO_WE_ARE = {
@@ -95,32 +31,30 @@ export const NAVIGATION_BAR_ELEMENTS = [
   {
     name: 'about',
     label: 'ABOUT',
-    parent: null
   },
   {
     name: 'product-solution',
     label: 'PRODUCT SOLUTION',
-    parent: null
   },
   {
     name: 'regulatory-compliance',
     label: 'REGULATORY COMPLIANCE',
-    parent: null
   },
   {
     name: 'blog',
     label: 'BLOGS',
-    parent: null
   },
   {
     name: 'help',
     label: 'HELP',
-    parent: null
+  },
+  {
+    name: 'contact-us',
+    label: 'CONTACT US',
   },
   {
     name: 'logout',
     label: 'LOGOUT',
-    parent: null
   },
 ]
 
@@ -331,8 +265,6 @@ export const REGULATORY_COMPLIANCE = [
   }
 ]
 
-// export const REGULATORY_COMPLIANCE_MESSAGE = "We provide full support to ensure your products meet all regulatory requirements across different markets. From Canadian NPN licensing and U.S. FDA consulting to global cosmetic and veterinary compliance, our team guides you through label reviews, documentation, import licenses, and product submissions—making regulatory approval smooth and efficient.";
-
 export const REGULATORY_COMPLIANCE_MESSAGE = "<b>We streamline the compliance process</b> across Canada, the USA, and global markets. From <b>licensing</b> and label reviews to <b>lab testing</b> and product submissions, we help ensure your products meet all <b>regulatory standards</b> efficiently and effectively.";
 
 export const CONTACT_INFO: any[] = [
@@ -364,7 +296,7 @@ export const FAQ_ELEMENTS: any[] = [
   {
     index: 2,
     question: 'Application Overview',
-    answer: 'NPN applications are increasingly complex with the regulatory framework Health Canada is imposing as part of its mandate to regulate dietary supplements. In order to obtain a NPN for your product, Health Canada requires evidence to support your product’s safety, efficacy and quality. Some examples of information required in order to fulfil this requirement are as follows:' +
+    answer: 'NPN applications are increasingly complex with the regulatory framework Health Canada is imposing as part of its mandate to regulate dietary supplements. In order to obtain a NPN for your product, Health Canada requires evidence to support your product’s safety, efficacy and quality. Some examples of information required in order to fulfil this requirement are as follows: ' +
       '<ul>' +
       '<li>Product Name</li>' +
       '<li>Company under which the product is to be marketed under</li>' +
@@ -375,29 +307,29 @@ export const FAQ_ELEMENTS: any[] = [
       '<li>Desired claims</li>' +
       '<li>Proposed cautionary statements</li>' +
       '</ul>' +
-      'Subsequent to establishing these details, documentation will need to be submitted to Health Canada, including the Product Licence Application form, Finished Product Specification, and more.\n'
+      'Subsequent to establishing these details, documentation will need to be submitted to Health Canada, including the Product Licence Application form, Finished Product Specification, and more.'
   },
   {
     index: 3,
-    question: 'The Synapse Process (formerly named Our Process)',
-    answer: 'SynapseNHP guides you through a tailored but efficient process in order to successfully secure your NPN. The bulk of the work is in the front end, and Synapse will see the process through for you.' +
+    question: 'The Process (formerly named Our Process)',
+    answer: 'Vitali will guides you through a tailored but efficient process in order to successfully secure your NPN. The bulk of the work is in the front end, and Vitali will see the process through for you. '+
       '<ol>' +
       '<li><b>NDA signing</b>: we recognize the importance of Intellectual Property and the immense effort our clients put in to designing specialty formulations. All communications remain strictly confidential, and are released only to parties necessary in obtaining the NPN (i.e. Health Canada, designated manufacturers, designated third party labs as deemed necessary by confirmation by you, the client).</li><br/>' +
-      '<li><b>Formulation assessment</b>: we will review your formulation and confirm viability of NPN approval, thereby providing an official quotation for the application. Synapse provides a guarantee for NPN approvals, with a 90% refund policy for unsuccessful applications. As such, we do not take on projects where formulations are flagged in cases where certain ingredients cannot be approved. At this stage, we will establish full formulation details in order to generate a Finished Product Specification, along with providing expert guidance on what claims can be made. This is the stage at which the heaviest lifting is done. Unlike other consulting companies, SynapseNHP has a background in manufacturing of Natural Health Products, and has a key edge when it comes to establishing sound formulations and Finished Product Specifications.</li><br/>' +
+      '<li><b>Formulation assessment</b>: we will review your formulation and confirm viability of NPN approval, thereby providing an official quotation for the application. Vitali provides a guarantee for NPN approvals, with a 90% refund policy for unsuccessful applications. As such, we do not take on projects where formulations are flagged in cases where certain ingredients cannot be approved. At this stage, we will establish full formulation details in order to generate a Finished Product Specification, along with providing expert guidance on what claims can be made. This is the stage at which the heaviest lifting is done. Unlike other consulting companies, Vitali has a background in manufacturing of Natural Health Products, and has a key edge when it comes to establishing sound formulations and Finished Product Specifications.</li><br/>' +
       '<li><b>Dossier Preparation</b>: We will generate the full application dossier and provide the Product Licence Application (PLA) draft for your review and confirmation. At this stage, a proposed label text will be provided to you to begin design work, allowing for more efficient use of time.</li><br/>' +
-      '<li><b>Submission Management</b>: SynapseNHP will submit the dossier to Health Canada on your behalf and manage the submission until approval.</li><br/>' +
+      '<li><b>Submission Management</b>: Vitali will submit the dossier to Health Canada on your behalf and manage the submission until approval.</li><br/>' +
       '<li><b>Label & Packaging Review</b>: Upon completion, we will provide a finalised label text, which you can use to update and complete design work on all packaging materials, along with confirming specifications with your manufacturer, and you’re on your way to product launch!</li><br/>' +
       '</ol>'
   },
   {
     index: 4,
-    question: 'Why do I need SynapseNHP for NPN applications?',
+    question: 'Why do I need Vitali for NPN applications?',
     answer: 'Unlike the US and various other countries, Health Canada has strict regulations requiring product registrations and assessments for what products can be sold on the market, entailing full compliance review of each individual product. The framework for this can be tricky, and require careful navigation of the complexities of the NHP regulations. We can help you streamline the process, avoiding delays in bureaucratic processing, and increase your chance for success.'
   },
   {
     index: 5,
     question: 'What testing is required for my NHP?',
-    answer: 'This will depend on your product; SynapseNHP’s process covers guidance on what testing requirements are most optimal for ensuring safety and efficacy for your consumers, whilst managing associated testing costs from a business consideration standpoint.'
+    answer: 'This will depend on your product; Vitali’s process covers guidance on what testing requirements are most optimal for ensuring safety and efficacy for your consumers, whilst managing associated testing costs from a business consideration standpoint.'
   },
   {
     index: 6,
@@ -407,13 +339,13 @@ export const FAQ_ELEMENTS: any[] = [
   {
     index: 7,
     question: 'How long will I need to wait for my NPN to be approved?',
-    answer: 'SynapseNHP will provide you guidance on estimated application times in the “Formulation Assessment” phase of our process. Service standards for Health Canada are updated periodically, and range between 60 calendar days to 210 calendar days (from acknowledgement of dossier receiving).'
+    answer: 'Vitali NHP will provide you guidance on estimated application times in the “Formulation Assessment” phase of our process. Service standards for Health Canada are updated periodically, and range between 60 calendar days to 210 calendar days (from acknowledgement of dossier receiving).'
   },
   {
     index: 8,
-    question: 'How much will it cost to get my NPN through SynapseNHP?',
-    answer: 'SynapseNHP’s fees for NPN application are tailored for each application. Due to the inherent formulation differences and regulatory navigation required to assess formulations and deliver to you the most optimal NPN licence, we find this tailored approach to be most suitable.<br/><br/>' +
-      'Additionally, we are currently in a transitional phase with a proposed bill to implement cost recovery for Health Canada’s Natural Health Product, wherein Health Canada is looking to implement various registration fees for NPN applications, which can range from hundreds of dollars to thousands of dollars, increasing every year for 7 years. As part of SynapseNHP’s mission to help our customers provide quality Natural Health Products to the market to improve health outcomes for your customers, we are supporting various agencies who are at the forefront of fighting cost recovery in order to keep costs manageable for brand owners such as yourself.'
+    question: 'How much will it cost to get my NPN through Vitali Nutrition?',
+    answer: 'Vitali’s fees for NPN application are tailored for each application. Due to the inherent formulation differences and regulatory navigation required to assess formulations and deliver to you the most optimal NPN licence, we find this tailored approach to be most suitable.<br/><br/>' +
+      'Additionally, we are currently in a transitional phase with a proposed bill to implement cost recovery for Health Canada’s Natural Health Product, wherein Health Canada is looking to implement various registration fees for NPN applications, which can range from hundreds of dollars to thousands of dollars, increasing every year for 7 years. As part of Vitali’s mission to help our customers provide quality Natural Health Products to the market to improve health outcomes for your customers, we are supporting various agencies who are at the forefront of fighting cost recovery in order to keep costs manageable for brand owners such as yourself.'
   },
 ]
 
@@ -429,16 +361,20 @@ export const FOOTER_ELEMENTS = [
         label: 'About'
       },
       {
-        name: 'products',
-        label: 'Products'
-      },
-      {
         name: 'product-solutions',
         label: 'Product Solutions'
       },
       {
         name: 'regulatory-compliance',
         label: 'Regulatory Compliance'
+      },
+      {
+        name: 'blog',
+        label: 'Blogs',
+      },
+      {
+        name: 'help',
+        label: 'Help'
       },
       {
         name: 'contact-us',

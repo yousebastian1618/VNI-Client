@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {GqlService} from './gql-service';
 import {CREATE_PRODUCT_GQL, DELETE_PRODUCTS_GQL, PRODUCTS_GQL, REORDER_PRODUCTS_GQL} from '../objects/gql';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HomeService} from './home-service';
 import {ModalService} from './modal-service';

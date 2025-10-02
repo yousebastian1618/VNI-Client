@@ -64,26 +64,24 @@ export class BlogService {
         const uuid = paragraphs[i].image;
         if (!file) continue;
         const task = (async () => {
-          // 1) get presigned URL
           const { uploadUrl, contentType } = await firstValueFrom(
             this.getUploadBlogImagePresignedURL(file, uuid)
           );
-          // 2) upload to R2; wait for the final event
           await lastValueFrom(
             this.putToR2(uploadUrl, file, contentType).pipe(
               tap(event => {
                 if (event.type === HttpEventType.UploadProgress && event.total) {
-                  console.log(Math.round((100 * event.loaded) / event.total));
+
                 }
               }),
-              last() // completes when upload stream completes
+              last()
             )
           );
         })();
         tasks.push(task);
       }
-      await Promise.all(tasks);          // <-- waits for every upload
-      this.toggleReviewingBlog(false);   // all done
+      await Promise.all(tasks);
+      this.toggleReviewingBlog(false);
     } finally {
       this.homeService.stopLoading?.();
     }
@@ -99,7 +97,9 @@ export class BlogService {
         async (response: any) => {
           if (this.crudState === 'create') {
             const current = this.blogsSubject.getValue();
-            this.blogsSubject.next([...current, response.createBlog]);
+            let newBlog = {...response.createBlog};
+            newBlog.index = current.length;
+            this.blogsSubject.next([...current, newBlog]);
             SUBMIT_BLOG_BUTTONS.find(b => b.name === 'submit|new-blog').loading = false;
             await this.router.navigate(['blogs']);  // navigate after DB write succeeds
             resolve();

@@ -3,6 +3,7 @@ import {MainBlog} from '../../components/main-blog/main-blog';
 import {SubBlog} from '../../components/sub-blog/sub-blog';
 import {Icon} from '../../components/icon/icon';
 import {RouterLink} from '@angular/router';
+import {UserService} from '../../services/user-service';
 
 @Component({
   selector: 'app-blog-page',
@@ -19,6 +20,7 @@ export class BlogPage {
   @Input() blogs: any[] = [];
 
   constructor(
+    private userService: UserService
   ) {
   }
   getMainBlog() {
@@ -26,5 +28,8 @@ export class BlogPage {
   }
   getSubBlogs() {
     return this.blogs.slice(1, 4);
+  }
+  isAdmin() {
+    return this.userService.isAdmin();
   }
 }

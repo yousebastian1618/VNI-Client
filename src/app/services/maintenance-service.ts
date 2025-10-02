@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {GqlService} from './gql-service';
 import {MAINTENANCE, TOGGLE_MAINTENANCE} from '../objects/gql';
-import {gql} from '@apollo/client';
 
 @Injectable({
   providedIn: 'root'

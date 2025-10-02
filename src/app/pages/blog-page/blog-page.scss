@@ -1,19 +1,19 @@
 .blog-container {
   .blog-title {
-    padding: 1rem 5%;
+    padding: 1rem 2%;
   }
   .blog {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    width: 80%;
-    margin: auto;
+    align-items: center;
+    width: 78%;
+    margin: 3rem auto;
     .main-blog {
-      width: 75%;
-      margin: 0 3em;
+      width: 80%;
+      margin: 0 1em;
     }
     .sub-blogs {
-      width: 25%;
+      width: 22%;
       display: flex;
       flex-direction: column;
       justify-content: center;
