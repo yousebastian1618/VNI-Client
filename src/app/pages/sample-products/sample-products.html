@@ -12,7 +12,7 @@
       <div class="icon">
         <app-icon [icon]="'arrow_left'" (click)="goTo(-1)" [class]="currentPage === 0 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>
       </div>
-      <div class="sample-products" [ngClass]="slideDirection" (animationend)="slideDirection = null">
+      <div class="sample-products" [ngClass]="slideDirection">
         @for (product of getCurrentPageProducts(); track product) {
           <div class="sample-product">
             <img class="product-image"
