@@ -28,7 +28,7 @@ export class Blogs implements OnInit, OnDestroy {
   ngOnInit() {
     this.blogService.getBlogsObservable()
       .subscribe(arr => {
-        this.blogService.tempBlogs = structuredClone(arr);
+        this.blogService.tempBlogs = [...structuredClone(arr)];
       });
   }
   getTempBlogs() {

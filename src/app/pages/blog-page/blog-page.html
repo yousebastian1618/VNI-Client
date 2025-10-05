@@ -7,16 +7,20 @@
       <app-icon [icon]="'list'" class="list-icon-left" [tooltip]="'Manage'" [routerLink]="'blogs'"/>
     </div>
   }
-  <div class="blog">
-    <div class="main-blog">
-      <app-main-blog [blog]="getMainBlog()" />
+  @if (isBlogEmpty()) {
+    <div class="empty">-- No Blogs Available --</div>
+  } @else {
+    <div class="blog">
+      <div class="main-blog">
+        <app-main-blog [blog]="getMainBlog()" />
+      </div>
+      <div class="sub-blogs">
+        @for (blog of getSubBlogs(); track blog.id) {
+          <div class="sub-blog">
+            <app-sub-blog [blog]="blog"/>
+          </div>
+        }
+      </div>
     </div>
-    <div class="sub-blogs">
-      @for (blog of getSubBlogs(); track blog.id) {
-        <div class="sub-blog">
-          <app-sub-blog [blog]="blog"/>
-        </div>
-      }
-    </div>
-  </div>
+  }
 </div>

@@ -13,18 +13,22 @@
   }
   <div class="blog-element-container">
     <div class="blogs">
-      @for (blog of getTempBlogs(); track blog.id) {
-        <div
-          class="blog"
-          [draggable]="toggleDraggable()"
-          [id]="'blog_object_' + blog.index"
-          (dragstart)="onDragStart(blog.index)"
-          (dragenter)="onDragEnter($event, blog.index)"
-          (dragleave)="onDragLeave($event)"
-          (dragend)="onDragEnd()"
-        >
-          <app-sub-blog [blog]="blog" />
-        </div>
+      @if (getTempBlogs().length > 0) {
+        @for (blog of getTempBlogs(); track blog.id) {
+          <div
+            class="blog"
+            [draggable]="toggleDraggable()"
+            [id]="'blog_object_' + blog.index"
+            (dragstart)="onDragStart(blog.index)"
+            (dragenter)="onDragEnter($event, blog.index)"
+            (dragleave)="onDragLeave($event)"
+            (dragend)="onDragEnd()"
+          >
+            <app-sub-blog [blog]="blog" />
+          </div>
+        }
+      } @else {
+        <div class="empty">-- Empty --</div>
       }
     </div>
   </div>

@@ -9,27 +9,31 @@
   }
   <div class="body-container">
     <div class="products">
-      <div class="icon">
-        <app-icon [icon]="'arrow_left'" (click)="goTo(-1)" [class]="currentPage === 0 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>
-      </div>
-      <div class="sample-products" [ngClass]="slideDirection">
-        @for (product of getCurrentPageProducts(); track product) {
-          <div class="sample-product">
-            <img class="product-image"
-                 [ngSrc]="getImageSrc(product)"
-                 alt="" width="1" height="1" priority="priority"
-                 (click)="viewImage(product)" draggable="false"
-                 [placeholder]="'/assets/loading.gif'"
-            />
-          </div>
-        }
-        @for (_ of getGhosts(); track _) {
-          <div class="sample-product ghost"></div>
-        }
-      </div>
-      <div class="icon">
-        <app-icon [icon]="'arrow_right'" (click)="goTo(1)" [class]="currentPage >= getSampleProducts().length / numberOfProductsPerPage - 1 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>
-      </div>
+      @if (getCurrentPageProducts().length > 0) {
+        <div class="icon">
+          <app-icon [icon]="'arrow_left'" (click)="goTo(-1)" [class]="currentPage === 0 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>
+        </div>
+        <div class="sample-products" [ngClass]="slideDirection">
+          @for (product of getCurrentPageProducts(); track product) {
+            <div class="sample-product">
+              <img class="product-image"
+                   [ngSrc]="getImageSrc(product)"
+                   alt="" width="1" height="1" priority="priority"
+                   (click)="viewImage(product)" draggable="false"
+                   [placeholder]="'/assets/loading.gif'"
+              />
+            </div>
+          }
+          @for (_ of getGhosts(); track _) {
+            <div class="sample-product ghost"></div>
+          }
+        </div>
+        <div class="icon">
+          <app-icon [icon]="'arrow_right'" (click)="goTo(1)" [class]="currentPage >= getSampleProducts().length / numberOfProductsPerPage - 1 ? 'disabled icon-cursor-pointer' : 'icon-cursor-pointer'"/>
+        </div>
+      } @else {
+        <div class="empty">-- Empty --</div>
+      }
     </div>
   </div>
 </div>

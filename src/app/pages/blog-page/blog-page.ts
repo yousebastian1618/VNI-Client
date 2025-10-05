@@ -23,6 +23,9 @@ export class BlogPage {
     private userService: UserService
   ) {
   }
+  isBlogEmpty() {
+    return this.blogs.length === 0;
+  }
   getMainBlog() {
     return this.blogs[0];
   }
