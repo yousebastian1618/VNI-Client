@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {GqlService} from './gql-service';
 import {MAINTENANCE, TOGGLE_MAINTENANCE} from '../objects/gql';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class MaintenanceService {
 
   }
   getMaintenance() {
+    console.log(environment.environ)
     return this.gqlService.gqlQuery(
       MAINTENANCE,
       false,
