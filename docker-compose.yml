@@ -1,0 +1,11 @@
+name: vni_client_local
+services:
+  web:
+    image: vni_client:local
+    container_name: vni_client_local
+    build: .
+    ports:
+      - "4202:80"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

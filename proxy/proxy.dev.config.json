@@ -1,4 +1,4 @@
 {
-  "/api":     { "target": "https://dev.abc.com", "secure": true, "changeOrigin": true, "ws": true, "logLevel": "debug" },
-  "/graphql": { "target": "https://dev.abc.com", "secure": true, "changeOrigin": true, "ws": true, "logLevel": "debug" }
+  "/api":     { "target": "https://vni-server-153951246739.us-west1.run.app", "secure": true, "changeOrigin": true, "ws": true, "logLevel": "debug" },
+  "/graphql": { "target": "https://vni-server-153951246739.us-west1.run.app", "secure": true, "changeOrigin": true, "ws": true, "logLevel": "debug" }
 }

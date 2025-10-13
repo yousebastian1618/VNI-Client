@@ -2,5 +2,5 @@ export const environment = {
   production: false,
   cross_domain: 'localhost',
   environ: 'development',
-  client: 'http://localhost:4202'
+  client: 'https://broad-base-dc7b.office-ec6.workers.dev'
 }

@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  cross_domain: 'localhost',
+  cross_domain: 'vitalinutri',
   environ: 'production',
-  client: 'http://localhost:4202'
+  client: 'vitalinutri.com'
 }

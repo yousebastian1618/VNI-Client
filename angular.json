@@ -52,7 +52,7 @@
               "sourceMap": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environment/environment.ts",
+                  "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.development.ts"
                 }
               ]
@@ -63,7 +63,7 @@
               "sourceMap": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environment/environment.ts",
+                  "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.local.ts"
                 }
               ]
