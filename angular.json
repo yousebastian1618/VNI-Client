@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "externalDependencies": ["react", "react-dom"]
           },
           "configurations": {
             "production": {
