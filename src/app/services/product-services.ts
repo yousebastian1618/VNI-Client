@@ -47,7 +47,7 @@ export class ProductServices {
     this.uploadImageCreateData(file);
   }
   getImageSrc(img: any) {
-    return `/api/products/image/${img.id}`
+    return `/api/products/image/${img.id}/`
   }
   uploadImageCreateData(file: File) {
     return this.gqlService.gqlMutation(
@@ -72,7 +72,7 @@ export class ProductServices {
   }
   getUploadPresignedURL(file: File, uid: string): Observable<any> {
     return this.http.post<any>(
-      `/api/products/get-upload-url/${uid}`, {
+      `/api/products/get-upload-url/${uid}/`, {
         filename: file.name,
         contentType: file.type || 'application/octet-stream'
       }
