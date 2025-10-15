@@ -1,6 +1,7 @@
 {
   "name": "vitali-client",
   "compatibility_date": "2025-10-14",
+  "main": "src/worker.ts",
   "assets": {
     "directory": "dist/VNI-Client/browser"
   }
