@@ -203,7 +203,7 @@ export class BlogService {
 
   }
   getBlogImageSrc(imageUUID: any) {
-    return `/api/blogs/image/${imageUUID}/`
+    return `${environment.server_url}/api/blogs/image/${imageUUID}/`
   }
   putToR2(uploadUrl: string, file: File, contentType: string) {
     const headers = new HttpHeaders({ 'Content-Type': contentType });
@@ -215,7 +215,7 @@ export class BlogService {
   }
   getUploadBlogImagePresignedURL(file: File, uid: string): Observable<any> {
     return this.http.post<any>(
-      `/api/blogs/get-upload-url/${uid}/`, {
+      `${environment.server_url}/api/blogs/get-upload-url/${uid}/`, {
         filename: uid,
         contentType: file.type || 'application/octet-stream'
       }
