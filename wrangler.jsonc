@@ -1,5 +1,5 @@
 {
-  "name": "VNI-Client",
+  "name": "vni-client",
   "compatibility_date": "2025-10-14",
   "assets": {
     "directory": "dist/VNI-Client/browser"
