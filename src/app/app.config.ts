@@ -5,6 +5,7 @@ import {ApplicationConfig, inject, provideBrowserGlobalErrorListeners, provideZo
 import { InMemoryCache } from '@apollo/client/core';
 import {provideRouter, withInMemoryScrolling} from '@angular/router';
 import {routes} from './app.routes';
+import {environment} from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideApollo(() => {
       const httpLink = inject(HttpLink);
       return {
-        link: httpLink.create({uri: "/graphql"}),
+        link: httpLink.create({uri: environment.server_url + "/graphql"}),
         cache: new InMemoryCache()
       }
     }),
