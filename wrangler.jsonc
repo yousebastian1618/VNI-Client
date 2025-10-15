@@ -1,3 +1,4 @@
 {
+  "name": "vitali-client",
   "pages_build_output_dir": "dist/VNI-Client/browser"
 }
