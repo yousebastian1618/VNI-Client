@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  cross_domain: 'localhost',
+  cross_domain: '',
   environ: 'development',
-  client: 'https://broad-base-dc7b.office-ec6.workers.dev'
+  client: 'https://vitali-client.office-ec6.workers.dev'
 }

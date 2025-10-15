@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Apollo} from 'apollo-angular';
-import {DocumentNode} from '@apollo/client';
+// import {DocumentNode} from '@apollo/client';
+import { DocumentNode } from 'graphql';
 import {Subscription} from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import {HomeService} from './home-service';
